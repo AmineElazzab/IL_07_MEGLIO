@@ -8,9 +8,9 @@ function autoload($class_name){
    $array_paths=array(
        'database/',
        'app/classes/',
-       'Models/',
-       'Controllers/',
-       'Views/'
+       'models/',
+       'controllers/'
+       
    );
 
    $parts=explode('\\',$class_name);//changer slache (/) to entislache (\)  -> divise une chaîne en un tableau.

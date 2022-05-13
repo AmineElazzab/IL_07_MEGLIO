@@ -7,10 +7,6 @@ class Redirect{
 
     }   // end of static method
 
-    static public function client (){   
-        header('Location:../client/login' );    
-
-    }
 }
 
 ?>
