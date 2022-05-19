@@ -37,7 +37,7 @@
 html,
 body {
     height: 100%;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Clash Display', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -88,6 +88,7 @@ p {
 
 img {
     max-width: 100%;
+    text-align: center;
 }
 
 input:focus,
@@ -107,6 +108,46 @@ ul,
 ol {
     padding: 0;
     margin: 0;
+}
+
+.dropbtn {
+    color: rgb(0, 0, 0);
+    /* padding: 16px; */
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    /* padding: 12px 16px; */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    /* background-color: #3e8e41; */
 }
 
 
@@ -658,7 +699,7 @@ ol {
 
 .discount__text {
     background: #f4f4f4;
-    height: 390px;
+    height: 100%;
     padding: 75px 90px 50px;
     text-align: center;
 }
@@ -858,6 +899,10 @@ ol {
     margin-top: 10px;
 }
 
+.row {
+    width: 100%;
+}
+
 
 /*---------------------
   Footer
@@ -873,7 +918,7 @@ ol {
 
 .footer__about p {
     margin-bottom: 20px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .footer__logo {
@@ -1014,10 +1059,10 @@ ol {
     margin-top: -20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
+    /* align-items: center; */
+    /* flex-wrap: wrap; */
+    padding: 0px;
+    margin: 0px;
 }
 
 
@@ -3727,9 +3772,4 @@ ol {
         width: 100%;
         font-size: 24px;
     }
-}
-
-
-}
-
 }

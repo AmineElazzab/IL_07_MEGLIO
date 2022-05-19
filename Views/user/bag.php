@@ -1,4 +1,11 @@
-    <!-- Page Preloder -->
+<?php
+    if($_SESSION['role']==1){   // Si l'utilisateur est un admin
+        header("Location: http://localhost/il-meglio/");
+    
+    }
+    ?>
+   
+   <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>

@@ -15,8 +15,8 @@
                 <div class="footer__widget">
                     <h6>Quick links</h6>
                     <ul>
-                        <li><a href="a&s">About The Store</a></li>
-                        <li><a href="t&p">Terms and Pilicies</a></li>
+                        <li><a href="about-the-store">About The Store</a></li>
+                        <li><a href="terms-and-policies">Terms and Policies</a></li>
                         <li><a href="contact">Contact</a></li>
                         <li><a href="payment">Payment</a></li>
                     </ul>
@@ -59,7 +59,6 @@
     </div>
 </footer>
 <!-- Footer Section End -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 <!-- Search End -->
 
@@ -71,20 +70,20 @@
     <script src="./Views/assets/js/jquery-ui.min.js"></script>
     <script src="./Views/assets/js/mixitup.min.js"></script>
     <script src="./Views/assets/js/jquery.countdown.min.js"></script>
-    <script src="./Views/assets/js/jquery.slicknav.js"></script>
+    <!-- <script src="./Views/assets/js/jquery.slicknav.js"></script> -->
     <script src="./Views/assets/js/owl.carousel.min.js"></script>
     <script src="./Views/assets/js/jquery.nicescroll.min.js"></script>
     <script src="./Views/assets/js/main.js"></script>
 
-    <script src="./Views/assets/js/vendor/jquery-3.3.1.min.js"></script>
-     <script src="./Views/assets/js/vendor/modernizr-3.6.0.min.js"></script>
-     <script src="./Views/assets/js/vendor/jquery.cookie.js"></script>
-     <script src="./Views/assets/js/vendor/wow.min.js"></script>
+    <!-- <script src="./Views/assets/js/vendor/jquery-3.3.1.min.js"></script> -->
+     <!-- <script src="./Views/assets/js/vendor/modernizr-3.6.0.min.js"></script> -->
+     <!-- <script src="./Views/assets/js/vendor/jquery.cookie.js"></script> -->
+     <!-- <script src="./Views/assets/js/vendor/wow.min.js"></script> -->
      <!-- Including Javascript -->
-     <script src="./Views/assets/js/bootstrap1.min.js"></script>
-     <script src="./Views/assets/js/plugins.js"></script>
-     <script src="./Views/assets/js/popper.min.js"></script>
-     <script src="./Views/assets/js/lazysizes.js"></script>
-     <script src="./Views/assets/js/main1.js"></script>
+     <!-- <script src="./Views/assets/js/bootstrap1.min.js"></script> -->
+     <!-- <script src="./Views/assets/js/plugins.js"></script> -->
+     <!-- <script src="./Views/assets/js/popper.min.js"></script> -->
+     <!-- <script src="./Views/assets/js/lazysizes.js"></script> -->
+     <!-- <script src="./Views/assets/js/main1.js"></script> -->
 
 </body>

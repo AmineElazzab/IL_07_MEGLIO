@@ -12,19 +12,18 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <title></title>
-<link rel="stylesheet" href="./Views/assets/css/plugins.css">
+<!-- <link rel="stylesheet" href="./Views/assets/css/plugins.css"> -->
 <!-- Bootstap CSS -->
-<link rel="stylesheet" href="./Views/assets/css/bootstrap1.min.css">
+<!-- <link rel="stylesheet" href="./Views/assets/css/bootstrap1.min.css"> -->
 <!-- Main Style CSS -->
-<link rel="stylesheet" href="./Views/assets/css/style1.css">
-<link rel="stylesheet" href="./Views/assets/css/responsive.css">
+<!-- <link rel="stylesheet" href="./Views/assets/css/style1.css"> -->
+<!-- <link rel="stylesheet" href="./Views/assets/css/responsive.css"> -->
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/clash-display" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"rel="stylesheet"> -->
 	<link rel="shortcut icon" href="./Views/assets/img/logo1.png" />
     
-    <link rel="stylesheet" href="./Views/assets/css/test.css" type="text/css">
     <!-- Css Styles -->
     <link rel="stylesheet" href="./Views/assets/css/style.css" type="text/css">
     <link rel="stylesheet" href="./Views/assets/css/bootstrap.min.css" type="text/css">
@@ -33,7 +32,7 @@
     <link rel="stylesheet" href="./Views/assets/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="./Views/assets/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="./Views/assets/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="./Views/assets/css/slicknav.min.css" type="text/css">
+    <!-- <link rel="stylesheet" href="./Views/assets/css/slicknav.min.css" type="text/css"> -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>

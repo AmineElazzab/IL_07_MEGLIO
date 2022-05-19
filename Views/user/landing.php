@@ -39,7 +39,8 @@
             </ul>
         </div>
         <div class="offcanvas__auth">
-            <a href="login">logout</a>
+            <a href="login">Login</a>
+            <a href="register">Register</a>
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -77,8 +78,8 @@
                 <div class="header__right">
                        
                         <div class="header__right__auth">
-                            <?php echo $_SESSION['nom'] ; echo $_SESSION['prenom']?>
-                            <a href="<?php echo BASE_URL ?>logout">logout</a>
+                            <a href="login">Login</a>
+                            <a href="register">Register</a>
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>

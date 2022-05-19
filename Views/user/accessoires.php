@@ -1,7 +1,14 @@
+<?php
+    if($_SESSION['role']==1){   // Si l'utilisateur est un admin
+        header("Location: http://localhost/il-meglio/");
+    
+    }
+    ?>
+    
     <!-- Page Preloder -->
-    <!-- <div id="preloder">
+    <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
@@ -92,7 +99,23 @@
     </div>
     <!-- Header Section End -->
 
-<p>accessories</p>
+   <!-- start -->
+   <div class="instagram">
+    <div class="container-fluid">
+        <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 p-0">
+        <img src="./Views/assets/img/hoods/hood2.jpg" class="float-start">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 p-0">
+        <img src="./Views/assets/img/hoods/hood1.jpg" class="float-end">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 p-0">
+        <img src="./Views/assets/img/hoods/hood3.jpg" class="float-end">
+        </div>
+    </div>
+</div>
+</div>
+        <!-- end -->
 
 <!-- Search Begin -->
 <div class="search-model">

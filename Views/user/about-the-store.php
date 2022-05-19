@@ -1,3 +1,9 @@
+    <?php
+    if($_SESSION['role']==1){   // Si l'utilisateur est un admin
+        header("Location: http://localhost/il-meglio/");
+    
+    }
+    ?>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -84,7 +90,7 @@
         </div>
     </header>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 border-bottom">
                 <div class="brand-logo">
                     <p>Every Product has a Story</p>
                 </div>
@@ -92,7 +98,39 @@
         </div>
 <!-- Header Section End -->
 
-<p>a&s</p>
+    <section class="discount">
+        <div class="container">
+            <div class="row">
+              
+                <div class="col-lg-8 mt-5">
+                    <div class="">
+                    <br/>
+                <br/>
+                <br/>
+                <br/>
+                        <h2 class="fs-1">About the Store</h2><br/>
+                        <p class="text -md-start fs-5 fw-normal">This store is your new gateway to online shopping in an easy and simple way.</p><br/>
+                        <p class="text -md-start fs-5 fw-normal">We provide you with many high quality products for you to choose from the best at a competitive price that you will not find anywhere else. Shopping with us is an enjoyable and safe process. We provide you with all the facilities you need, whether in choosing the product, in the payment process, or in the shipping process.</p>
+                        <br/>
+                <br/>
+                <br/>
+                <br/>
+                    </div>
+                    </div>
+                    <div class="col-lg-4  mt-5 ">
+                            <div class="">
+                            <br/>
+                <br/>
+                <br/>
+                <br/>
+                                <img src="./Views/assets/img/meglio.png" alt="">
+                            </div>
+                         </div>
+                    
+                </div>
+            </div>
+    </section>
+    
 
 <!-- Search Begin -->
 <div class="search-model">
