@@ -1,9 +1,4 @@
-<?php
-    if($_SESSION['role']==1){   // Si l'utilisateur est un admin
-        header("Location: http://localhost/il-meglio/");
-    
-    }
-    ?>
+
 
     <!-- Page Preloder -->
     <div id="preloder">
@@ -22,7 +17,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="home"><img src="./Views/assets/img/logo.png" alt=""></a>
+            <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
@@ -40,7 +35,7 @@
                 <div class="col-xl-4 col-lg-4">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="home">Home</a></li>
+                            <li><a href="<?php echo BASE_URL ?>">Home</a></li>
                             <li class="active"><a>Collection</a>
                                 <ul class="dropdown">
                                     <li><a href="hoods">Hoods</a></li>
@@ -66,7 +61,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-4">
                     <div class="header__logo">
-                        <a href="home"><img src="/Views/assets/img/logo.png" alt=""></a>
+                        <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4">
@@ -100,8 +95,28 @@
     <!-- Header Section End -->
 
 
-<p>caps</p>
+<!-- ======= Works Section ======= -->
+<section class="section site-portfolio">
+      <div class="container">
+          <div class="row">
+          <div class="col-md-6 col-lg-4 col-xl-3 p-2">
+              <div class="position-relative overflow-hidden">
+                  <img src ="./Views/assets/img/hoods/hood3.jpg" class="w-100">
+                  <span class="position-absolute d-flex align-items-center justify-content-center text-primary">
+                      <i class="fa fa-heart fa-2x"></i>
+              </div>
+              <div class="text-center">
+                  <p class ="text-capitalize mt-3 mb-1">Hoods</p>
+                  <span class="fw-bold d-block">$ 45.99</span>
+                  <a href="#" class ="btn btn-primary mt-3">Add to Cart</a>
+              </div>
 
+          </div>
+          </div>
+        
+      </div>
+</section>
+    <!-- End  Works Section -->
 
 
 

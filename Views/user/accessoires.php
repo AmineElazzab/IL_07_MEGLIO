@@ -1,9 +1,4 @@
-<?php
-    if($_SESSION['role']==1){   // Si l'utilisateur est un admin
-        header("Location: http://localhost/il-meglio/");
-    
-    }
-    ?>
+
     
     <!-- Page Preloder -->
     <div id="preloder">
@@ -22,7 +17,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="home"><img src="./Views/assets/img/logo.png" alt=""></a>
+            <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
@@ -40,17 +35,17 @@
                 <div class="col-xl-4 col-lg-4">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="home">Home</a></li>
+                            <li><a href="<?php echo BASE_URL ?>">Home</a></li>
                             <li class="active"><a>Collection</a>
                                 <ul class="dropdown">
-                                    <li><a href="hoods">Hoods</a></li>
+                                    <li><a href="hoods?id=12">Hoods</a></li>
                                     <li><a href="sweats">Sweats</a></li>
                                     <li><a href="t-shirts">T-shirts</a></li>
                                     <li><a>Accessories</a></li>
                                     <li><a href="caps">Caps</a></li>
                                     <li><a href="socks">Socks</a></li>
                                 </ul>
-                        </li>
+                            </li>
                             <!-- <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="#">Product Details</a></li>
@@ -60,13 +55,13 @@
                                 </ul>
                             </li> -->
                             <!-- <li><a href="./blog.html">Blog</a></li> -->
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-xl-4 col-lg-4">
                     <div class="header__logo">
-                        <a href="home"><img src="./Views/assets/img/logo.png" alt=""></a>
+                        <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4">
@@ -77,9 +72,9 @@
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
+                            <li><a href="heart"><span class="icon_heart_alt"></span>
                             </a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
+                            <li><a href="bag"><span class="icon_bag_alt"></span>
                             </a></li>
                         </ul>
                     </div>

@@ -1,6 +1,10 @@
+<?php
+    if(isset($_POST))
+    {
 
- 
- <!-- Page Preloder -->
+    }
+?>
+   <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -71,7 +75,7 @@
                 <div class="col-xl-4 col-lg-4">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="<?php echo BASE_URL ?>">Home</a></li>
+                            <li><a href="home">Home</a></li>
                             <li><a>Collection</a>
                                 <ul class="dropdown">
                                 <form action="products" method="post">
@@ -107,7 +111,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-4">
                     <div class="header__logo">
-                        <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
+                        <a href="home"><img src="./Views/assets/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4">
@@ -131,31 +135,37 @@
             </div>
         </div>
     </header>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="brand-logo">
-                <p>Every Product has a Story</p>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="brand-logo">
+                    <p>Every Product has a Story</p>
+                </div>
+            </div>
+        </div>
+<!-- Header Section End -->
+
+<section class="discount mt-5  ">
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-3  ">
+            </div>
+            <div class="col-lg-3 col-md-6 col-6  ">
+                <div class="">
+                    <img src="./Views/assets/img/hoods/hood3.jpg" class="img-responsive">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <p class="text-star fs-4">Name product</p>
+                <p class="text-star fs-4">Price</p>
+                <p class="text-star fs-4">Description</p>
+                <p class="text-star fs-4">Size</p>
+                <p class="text-star fs-4">Color</p>
+                <p class="text-star fs-4">Quantity</p><br/>
+                <button class="btn btn-primary">Add to cart</button>                
             </div>
         </div>
     </div>
-    <!-- Header Section End -->
-
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12"> 
-                <img src="./Views/assets/img/payment.jpg" alt="">
-            </div>
-            <div class="col-lg-6 mt-5">
-                <p class="text-center fs-4">Cash on Delivery (COD)</p><br/>
-                <p>Cash On Delivery (Cash On Delivery) is one of the payment methods available on our store, and payment upon receipt means that the shopper can shop through our online store and choose the product he wants and then place the order and choose the method of payment upon receipt, which means that the payment process is postponed until The customer receives the product he ordered electronically.</p><br/>
-                <p>We will send the product to the agreed place (city, neighborhood, home or another place), and then the payment will be made.</p>
-            </div>
-            <div class="col-lg-6 mt-5">
-                <p class="text-center fs-4">Payment via bank transfer</p><br/>
-                <p class="text-start">Payment via bank transfer is one of the payment methods available on our store, and payment is made by transferring the agreed amount to our bank account, or via a bank transfer, or through a money transfer agency in the agreed name, and then the product is sent to the agreed place.</p>
-            </div>
-    </div>
+</section>
 
 <!-- Search Begin -->
 <div class="search-model">

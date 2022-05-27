@@ -7,7 +7,7 @@ class LoginModels{
         $email=$data['email'];
         
         try{
-           $query='SELECT * FROM client WHERE email=:email';
+           $query='SELECT * FROM users WHERE email=:email';
            $stmt=DB::connect()->prepare($query);
            $stmt->execute((array(":email"=>$email)));
            $client=$stmt->fetch(PDO::FETCH_OBJ);

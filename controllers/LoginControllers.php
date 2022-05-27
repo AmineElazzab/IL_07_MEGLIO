@@ -17,8 +17,8 @@ class LoginControllers{
             //Vérifie qu'un mot de passe correspond à un hachage
             if($result->email === $_POST['email'] && password_verify($_POST['passwords'],$result->passwords)){  // compare this snippet from app\classes\LoginControllers.php:      
                      $_SESSION['logged']=true;  
-                     $_SESSION['nom']=$result->nom; 
-                     $_SESSION['prenom']=$result->prenom;   
+                     $_SESSION['fullname']=$result->fullname; 
+                    //  $_SESSION['prenom']=$result->prenom;   
                      $_SESSION['id_client']=$result->id_client; 
                      $_SESSION['role']=0;   // create a session with the role value     
                      Redirect::to('./home');   

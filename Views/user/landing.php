@@ -18,7 +18,7 @@
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="home"><img src="./Views/assets/img/logo.png" alt=""></a>
+            <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap">
             <ul>
@@ -26,12 +26,31 @@
                 <span class="dropdown">
                 <li><a class="dropbtn" href="">Collection</a>
                     <ul class="dropdown-content">
-                        <li><a href="hoods">Hoods</a></li>
-                        <li><a href="sweats">Sweats</a></li>
-                        <li><a href="t-shirts">T-shirts</a></li>
-                        <li><a href="accessoires">Accessories</a></li>
-                        <li><a href="caps">Caps</a></li>
-                        <li><a href="socks">Socks</a></li>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="id" value="12">
+                                        <input type="hidden" name="categorie" value="hoods">
+                                        <input type="submit" name="try" value="Hoods" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="sweats">
+                                        <input type="submit" name="try" value="Sweats" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="t-shirts">
+                                        <input type="submit" name="try" value="T-shirts" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="accessoires">
+                                        <input type="submit" name="try" value="Accessoires" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="caps">
+                                        <input type="submit" name="try" value="Caps" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="shoes">
+                                        <input type="submit" name="try" value="Shoes" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
                     </ul>
                 </li>
                 </span> 
@@ -56,12 +75,37 @@
                             <li class="active"><a>Home</a></li>
                             <li><a href="">Collection</a>
                                 <ul class="dropdown">
-                                    <li><a href="hoods">Hoods</a></li>
-                                    <li><a href="sweats">Sweats</a></li>
-                                    <li><a href="t-shirts">T-shirts</a></li>
-                                    <li><a href="accessoires">Accessories</a></li>
-                                    <li><a href="caps">Caps</a></li>
-                                    <li><a href="socks">Socks</a></li>
+                                <form action="products" method="post">
+                                        <!-- <li><a href="hoods?id=12">Hoods</a></li> -->
+                                        <input type="hidden" name="id" value="12">
+                                        <input type="hidden" name="categorie" value="hoods">
+                                        <input type="submit" name="try" value="Hoods" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <!-- <li><a href="sweats">Sweats</a></li> -->
+                                        <input type="hidden" name="categorie" value="sweats">
+                                        <input type="submit" name="try" value="Sweats" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <!-- <li><a href="sweats">Sweats</a></li> -->
+                                        <input type="hidden" name="categorie" value="t-shirts">
+                                        <input type="submit" name="try" value="T-shirts" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <!-- <li><a href="sweats">Sweats</a></li> -->
+                                        <input type="hidden" name="categorie" value="accessoires">
+                                        <input type="submit" name="try" value="Accessoires" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <!-- <li><a href="sweats">Sweats</a></li> -->
+                                        <input type="hidden" name="categorie" value="caps">
+                                        <input type="submit" name="try" value="Caps" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <!-- <li><a href="sweats">Sweats</a></li> -->
+                                        <input type="hidden" name="categorie" value="shoes">
+                                        <input type="submit" name="try" value="Shoes" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
                                 </ul>
                         </li>
                             

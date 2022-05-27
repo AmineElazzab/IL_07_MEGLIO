@@ -1,9 +1,4 @@
-<?php
-    if($_SESSION['role']==1){   // Si l'utilisateur est un admin
-        header("Location: http://localhost/il-meglio/");
-    
-    }
-    ?>
+
    
    <!-- Page Preloder -->
     <div id="preloder">
@@ -16,15 +11,51 @@
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
-            <li><a href=""><span class="icon_heart_alt"></span>
+            <li><a href="heart"><span class="icon_heart_alt"></span>
             </a></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
+            <li><a href="bag"><span class="icon_bag_alt"></span>
             </a></li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="home"><img src="./Views/assets/img/logo.png" alt=""></a>
+            <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
         </div>
-        <div id="mobile-menu-wrap"></div>
+        <div id="mobile-menu-wrap">
+            <ul>
+                <li class="active"><a>Home</a></li>
+                <span class="dropdown">
+                <li><a class="dropbtn" href="">Collection</a>
+                    <ul class="dropdown-content">
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="id" value="12">
+                                        <input type="hidden" name="categorie" value="hoods">
+                                        <input type="submit" name="try" value="Hoods" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="sweats">
+                                        <input type="submit" name="try" value="Sweats" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="t-shirts">
+                                        <input type="submit" name="try" value="T-shirts" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="accessoires">
+                                        <input type="submit" name="try" value="Accessoires" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="caps">
+                                        <input type="submit" name="try" value="Caps" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="shoes">
+                                        <input type="submit" name="try" value="Shoes" style="color:#000;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                    </ul>
+                </li>
+                </span> 
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </div>
         <div class="offcanvas__auth">
             <a href="login">Login</a>
             <a href="register">Register</a>
@@ -40,46 +71,63 @@
                 <div class="col-xl-4 col-lg-4">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="home">Home</a></li>
+                            <li><a href="<?php echo BASE_URL ?>">Home</a></li>
                             <li><a>Collection</a>
                                 <ul class="dropdown">
-                                    <li><a href="hoods">Hoods</a></li>
-                                    <li><a href="sweats">Sweats</a></li>
-                                    <li><a href="t-shirts">T-shirts</a></li>
-                                    <li><a href="accessoires">Accessories</a></li>
-                                    <li><a href="caps">Caps</a></li>
-                                    <li><a href="socks">Socks</a></li>
+                                <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="hoods">
+                                        <input type="submit" name="try" value="Hoods" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="sweats">
+                                        <input type="submit" name="try" value="Sweats" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="t-shirts">
+                                        <input type="submit" name="try" value="T-shirts" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="accessoires">
+                                        <input type="submit" name="try" value="Accessoires" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="caps">
+                                        <input type="submit" name="try" value="Caps" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
+                                    <form action="products" method="post">
+                                        <input type="hidden" name="categorie" value="shoes">
+                                        <input type="submit" name="try" value="Shoes" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+                                    </form>
                                 </ul>
                         </li>
-                            <!-- <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Product Details</a></li>
-                                    <li><a href="#">Shop Cart</a></li>
-                                    <li><a href="#">Checkout</a></li>
-                                    <li><a href=".#">Blog Details</a></li>
-                                </ul>
-                            </li> -->
-                            <!-- <li><a href="./blog.html">Blog</a></li> -->
+                            
                             <li class="active"><a href="#">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-xl-4 col-lg-4">
                     <div class="header__logo">
-                        <a href="home"><img src="./Views/assets/img/logo.png" alt=""></a>
+                        <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-4">
                 <div class="header__right">
                         <div class="header__right__auth">
-                            <a href="login">Login</a>
+                            <?php
+                                if($_SESSION['logged']){
+                                    
+                            ?>
+                                <a href="login">Login</a>
+                            <?php
+                                }
+                            ?>
                             <a href="register">Register</a>
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span>
+                            <li><a href="heart"><span class="icon_heart_alt"></span>
                             </a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span>
+                            <li><a href="bag"><span class="icon_bag_alt"></span>
                             </a></li>
                         </ul>
                     </div>
