@@ -71,6 +71,7 @@
     <script src="./Views/assets/js/owl.carousel.min.js"></script>
     <script src="./Views/assets/js/jquery.nicescroll.min.js"></script>
     <script src="./Views/assets/js/main.js"></script>
+    <script src="./Views/assets/js/main1.js"></script>
 
     
 </body>

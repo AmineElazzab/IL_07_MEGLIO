@@ -1,13 +1,12 @@
-/* Template default CSS
-/*----------------------------------------*/
-
-
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap'); */
-
 @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 body {
     font-family: "Amiri", sans-serif;
     color: #444444;
+    /* margin-right: -15px; */
+}
+
+table tbody tr td img {
+    width: 50px;
 }
 
 a,
@@ -3684,37 +3683,6 @@ a:hover {
     .offcanvas__menu {
         display: none;
     }
-    .slicknav_btn {
-        display: none;
-    }
-    .slicknav_menu {
-        background: transparent;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-    .slicknav_nav ul {
-        margin: 0;
-    }
-    .slicknav_nav .slicknav_row,
-    .slicknav_nav a {
-        padding: 7px 0;
-        margin: 0;
-        color: #111111;
-        font-weight: 600;
-    }
-    .slicknav_nav .slicknav_row:hover {
-        border-radius: 0;
-        background: transparent;
-        color: #111111;
-    }
-    .slicknav_nav a:hover {
-        border-radius: 0;
-        background: transparent;
-        color: #111111;
-    }
-    .slicknav_nav {
-        display: block !important;
-    }
     .offcanvas__logo {
         margin-bottom: 25px;
     }
@@ -3852,37 +3820,6 @@ a:hover {
     }
     .offcanvas__menu {
         display: none;
-    }
-    .slicknav_btn {
-        display: none;
-    }
-    .slicknav_menu {
-        background: transparent;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-    .slicknav_nav ul {
-        margin: 0;
-    }
-    .slicknav_nav .slicknav_row,
-    .slicknav_nav a {
-        padding: 7px 0;
-        margin: 0;
-        color: #111111;
-        font-weight: 600;
-    }
-    .slicknav_nav .slicknav_row:hover {
-        border-radius: 0;
-        background: transparent;
-        color: #111111;
-    }
-    .slicknav_nav a:hover {
-        border-radius: 0;
-        background: transparent;
-        color: #111111;
-    }
-    .slicknav_nav {
-        display: block !important;
     }
     .offcanvas__logo {
         margin-bottom: 25px;
@@ -4072,7 +4009,8 @@ a:hover {
 }
 
 body {
-    background-color: #ecedee
+    background-color: #ecedee;
+    margin-left: 15px;
 }
 
 .card {

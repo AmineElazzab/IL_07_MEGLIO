@@ -21,7 +21,7 @@ class LoginControllers{
                     //  $_SESSION['prenom']=$result->prenom;   
                      $_SESSION['id_client']=$result->id_client; 
                      $_SESSION['role']=0;   // create a session with the role value     
-                     Redirect::to('./home');   
+                     Redirect::to('./landing');   
                 
             }
             //Détermine si une variable est non vide
@@ -33,7 +33,6 @@ class LoginControllers{
                 $_SESSION['fullname']=$resultAdmin->fullname;
                 $_SESSION['role']=1;
                 Redirect::to('./dashboard');
-                // Redirect::to('../avion/Dashboard');
 
               
            
@@ -55,8 +54,7 @@ class LoginControllers{
 
 
    public function logout (){
-        session_destroy();//Detruit une session 
-
+        session_destroy();
     }
 }
 ?>

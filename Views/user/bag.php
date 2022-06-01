@@ -1,156 +1,78 @@
 
-   
-   <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+<?php include './Views/includes/navbar.php'; ?>
 
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__close">+</div>
-        <ul class="offcanvas__widget">
-            <li><span class="icon_search search-switch"></span></li>
-            <li><a href="heart"><span class="icon_heart_alt"></span>
-            </a></li>
-            <li><a href="bag"><span class="icon_bag_alt"></span>
-            </a></li>
-        </ul>
-        <div class="offcanvas__logo">
-            <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
-        </div>
-        <div id="mobile-menu-wrap">
-            <ul>
-                <li class="active"><a>Home</a></li>
-                <span class="dropdown">
-                <li><a class="dropbtn" href="">Collection</a>
-                    <ul class="dropdown-content">
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="id" value="12">
-                                        <input type="hidden" name="categorie" value="hoods">
-                                        <input type="submit" name="try" value="Hoods" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="sweats">
-                                        <input type="submit" name="try" value="Sweats" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="t-shirts">
-                                        <input type="submit" name="try" value="T-shirts" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="accessoires">
-                                        <input type="submit" name="try" value="Accessoires" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="caps">
-                                        <input type="submit" name="try" value="Caps" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="shoes">
-                                        <input type="submit" name="try" value="Shoes" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                    </ul>
-                </li>
-                </span> 
-                <li><a href="contact">Contact</a></li>
-            </ul>
-        </div>
-        <div class="offcanvas__auth">
-            <a href="login">Login</a>
-            <a href="register">Register</a>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container-fluid">
-            <div class="row">
-               
-                <div class="col-xl-4 col-lg-4">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="<?php echo BASE_URL ?>">Home</a></li>
-                            <li><a>Collection</a>
-                                <ul class="dropdown">
-                                <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="hoods">
-                                        <input type="submit" name="try" value="Hoods" style="color:#fff;margin-left:20px;margin-bottom:10px;">
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-md-8 bg-white mt-5 ">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <th>image</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Color</th>
+                        <th>Size</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($_SESSION as $name => $product) : ?>
+                        <?php if (substr($name, 0,9)=="products_") : ?>
+                            <tr>
+                                <td> <img src=<?= $product['image']?> alt=""></td>
+                                <td><?php echo $product["name"]; ?></td>
+                                <td><?php echo $product["price"]; ?></td>
+                                <td><?php echo $product["quantity"]; ?></td>
+                                <td><?php echo $product["color"]; ?></td>
+                                <td><?php echo $product["size"]; ?></td>
+                                <td><?php echo $product["total"]; ?> MAD</td>
+                                <td>
+                                    <form method="post" action="<?php echo BASE_URL;?>cancelbag">
+                                        <input type="hidden" name="id_prod" value="<?php echo $product["id"];?>">
+                                        <input type="hidden" name="prix_prod" value="<?php echo $product["price"];?>">
+                                        <input type="hidden" name="quantité" value="<?php echo $product["quantity"];?>">
+                                        <button type="submit" class="btn btn-sm  btn-outline-danger text-dark font-weight-bold ">&times;</button>
                                     </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="sweats">
-                                        <input type="submit" name="try" value="Sweats" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="t-shirts">
-                                        <input type="submit" name="try" value="T-shirts" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="accessoires">
-                                        <input type="submit" name="try" value="Accessoires" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="caps">
-                                        <input type="submit" name="try" value="Caps" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="shoes">
-                                        <input type="submit" name="try" value="Shoes" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                </ul>
-                        </li>
-                            
-                            <li><a href="contact">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                    <div class="header__logo">
-                        <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="login">Login</a>
-                            <a href="register">Register</a>
-                        </div>
-                        <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="heart"><span class="icon_heart_alt"></span>
-                            </a></li>
-                            <li><a href="bag"><span class="icon_bag_alt"></span>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                
+            </table>
+           
+
+            <div class="col-4 col-md-4 float-right ">
+                    <table class="table table-bordered mt-3">
+                    <tbody>
+                   <tr>
+                       <th scope="row">Produits</th>
+                       <td>
+                        <?php echo isset($_SESSION["count"]) ? $_SESSION["count"] : 0;?>
+                       </td>
+                   </tr>
+                   <tr>
+                       <th scope="row">Total TTC</th>
+                       <td>
+                                <?php echo isset($_SESSION["totaux"]) ? $_SESSION["totaux"] : 0;?>
+                                
+                            </strong>
+                       </td>
+                   </tr>
+               </tbody>
+                    </table>
+                    <?php if(isset($_SESSION["count"]) && $_SESSION["count"] > 0) :?>
+                        <form method="post" action="<?php echo BASE_URL;?>emptybag">
+                             <button type="submit" class="btn btn-outline-secondary">empty bag</button>
+                         </form>
+            <?php endif; ?>
             </div>
         </div>
-    </header>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="brand-logo">
-                    <p>Every Product has a Story</p>
-                </div>
-            </div>
-        </div>
-<!-- Header Section End -->
-
-<p>bag</p>
-
-<!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
     </div>
 </div>
-<!-- Search End -->
+
 
 <?php include './Views/includes/footer.php'; ?>

@@ -15,4 +15,21 @@ class ProductController{
             return $products;
         }
     }
+    public function getProduct(){
+        if(isset($_POST['id_prod'])){
+            $data = array(
+                'id' => $_POST['id_prod']
+            );
+            $product = Product::getProductById($data);	
+            return $product;
+        }
+    }
+    public function emptyCart($id, $price){
+      unset($_SESSION["products_" . $id]);
+      $_SESSION["count"] -= 1;
+      $_SESSION["totaux"] -= $price;
+        Redirect::to("bag");
+
+
+    }
 }

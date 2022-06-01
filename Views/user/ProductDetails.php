@@ -1,181 +1,86 @@
+<?php include './Views/includes/navbar.php'; ?>
+
+
 <?php
-    if(isset($_POST))
-    {
-
-    }
+    $data = new ProductController();
+    $product = $data->getProduct();
 ?>
-   <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
 
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__close">+</div>
-        <ul class="offcanvas__widget">
-            <li><span class="icon_search search-switch"></span></li>
-            <li><a href="heart"><span class="icon_heart_alt"></span>
-            </a></li>
-            <li><a href="bag"><span class="icon_bag_alt"></span>
-            </a></li>
-        </ul>
-        <div class="offcanvas__logo">
-            <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
-        </div>
-        <div id="mobile-menu-wrap">
-            <ul>
-                <li class="active"><a>Home</a></li>
-                <span class="dropdown">
-                <li><a class="dropbtn" href="">Collection</a>
-                    <ul class="dropdown-content">
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="id" value="12">
-                                        <input type="hidden" name="categorie" value="hoods">
-                                        <input type="submit" name="try" value="Hoods" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="sweats">
-                                        <input type="submit" name="try" value="Sweats" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="t-shirts">
-                                        <input type="submit" name="try" value="T-shirts" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="accessoires">
-                                        <input type="submit" name="try" value="Accessoires" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="caps">
-                                        <input type="submit" name="try" value="Caps" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="shoes">
-                                        <input type="submit" name="try" value="Shoes" style="color:#000;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                    </ul>
-                </li>
-                </span> 
-                <li><a href="contact">Contact</a></li>
-            </ul>
-        </div>
-        <div class="offcanvas__auth">
-            <a href="login">Login</a>
-            <a href="register">Register</a>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
 
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="container-fluid">
+
+<section class="bg-light ">
+        <div class="container pb-5">
             <div class="row">
-               
-                <div class="col-xl-4 col-lg-4">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="home">Home</a></li>
-                            <li><a>Collection</a>
-                                <ul class="dropdown">
-                                <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="hoods">
-                                        <input type="submit" name="try" value="Hoods" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="sweats">
-                                        <input type="submit" name="try" value="Sweats" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="t-shirts">
-                                        <input type="submit" name="try" value="T-shirts" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="accessoires">
-                                        <input type="submit" name="try" value="Accessoires" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="caps">
-                                        <input type="submit" name="try" value="Caps" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                    <form action="products" method="post">
-                                        <input type="hidden" name="categorie" value="shoes">
-                                        <input type="submit" name="try" value="Shoes" style="color:#fff;margin-left:20px;margin-bottom:10px;">
-                                    </form>
-                                </ul>
-                        </li>
-                            
-                            <li><a href="contact">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-xl-4 col-lg-4">
-                    <div class="header__logo">
-                        <a href="home"><img src="./Views/assets/img/logo.png" alt=""></a>
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                        <img class="card-img img-fluid" src="<?php echo $product->image_prod; ?>" alt="Card image cap" id="product-detail">
                     </div>
+                    
                 </div>
-                <div class="col-xl-4 col-lg-4">
-                <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="login">Login</a>
-                            <a href="register">Register</a>
+                <!-- col end -->
+                <div class="col-lg-7 mt-5">
+                    <div class="card">
+                        <div class="card-body mt-5 pt-5">
+                            <h1 class="h2"><?php echo $product->nom_prod; ?></h1>
+                            <p class="h3 py-2 fs-3 text-dark"><?php  echo $product->prix_prod;?> MAD</p>
+                          
+
+                            <h6 class="fs-3">Description:</h6>
+                            <p class="fs-4 text-dark"><?php  echo $product->descp_prod;?></p><br/>
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <h6 class="fs-3">Avaliable Color :</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                    <p class="text-muted"><strong>White / Black</strong></p>
+                                </li>
+                            </ul><br/>
+
+                            <h6 class="fs-3">Specification:</h6>
+                            <ul class="list-unstyled pb-3">
+                                <li>Lorem ipsum dolor sit</li>
+                                <li>Amet, consectetur</li>
+                                <li>Adipiscing elit,set</li>
+                                <li>Duis aute irure</li>
+                                <li>Ut enim ad minim</li>
+                                <li>Dolore magna aliqua</li>
+                                <li>Excepteur sint</li>
+                            </ul><br/>
+
+                            <h6 class="fs-3">Size: <?php echo $product->size; ?></h6>
+
+
+                          
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3">
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h3 class="text-secondary m-3 text-center">Quantity</h3>
+                                <form method="post" action="<?php echo BASE_URL; ?>checkout" >
+                                <div class="form-group">
+                                    <input type="number" name="product_qte" id="product_qte" class="form-control" value="1">
+                                    <input type="hidden" name="nom_prod" value="<?php echo $product->nom_prod; ?>">
+                                    <input type="hidden" name="id_prod" value="<?php echo $product->id_prod; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-dark btn-block">Add to Cart</button>
+                                </div>
+                                </form>
+
+ 
                         </div>
-                        <ul class="header__right__widget">
-                            <li><span class="icon_search search-switch"></span></li>
-                            <li><a href="heart"><span class="icon_heart_alt"></span>
-                            </a></li>
-                            <li><a href="bag"><span class="icon_bag_alt"></span>
-                            </a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="canvas__open">
-                <i class="fa fa-bars"></i>
-            </div>
         </div>
-    </header>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="brand-logo">
-                    <p>Every Product has a Story</p>
-                </div>
-            </div>
-        </div>
-<!-- Header Section End -->
+    </section>
 
-<section class="discount mt-5  ">
-    <div class="container ">
-        <div class="row">
-            <div class="col-lg-3  ">
-            </div>
-            <div class="col-lg-3 col-md-6 col-6  ">
-                <div class="">
-                    <img src="./Views/assets/img/hoods/hood3.jpg" class="img-responsive">
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-6">
-                <p class="text-star fs-4">Name product</p>
-                <p class="text-star fs-4">Price</p>
-                <p class="text-star fs-4">Description</p>
-                <p class="text-star fs-4">Size</p>
-                <p class="text-star fs-4">Color</p>
-                <p class="text-star fs-4">Quantity</p><br/>
-                <button class="btn btn-primary">Add to cart</button>                
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
+      
 <!-- Search End -->
 
 <?php include './Views/includes/footer.php'; ?>
