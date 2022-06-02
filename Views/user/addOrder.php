@@ -8,11 +8,11 @@ $order = new OrdersController();
 			"order_quantity" => $product['quantity'],
 			"prix" => $product['price'],
 			"total" => $product['total'],
-			"date_order" => date("Y-m-d"),
 			"order_status" => "En cours"
 		);
 		$order->addOrder($data);
 	}else{
-		// Redirect::to("landing"); 
+		Redirect::to("landing");
 	}
+	
 }

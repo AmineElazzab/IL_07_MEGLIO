@@ -12,7 +12,7 @@ class OrdersController{
                 }
             }
             Session::set('success', 'Votre commande a été prise en compte');
-            // Redirect::to("landing");
+            Redirect::to("landing");
         }
     }
 }
