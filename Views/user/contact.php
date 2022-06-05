@@ -47,7 +47,7 @@
 				      		<div id="form-message-success" class="mb-4">
 				            
 				      		</div>
-									<form method="POST" id="contactForm" name="contactForm">
+									<form method="POST" action="https://formsubmit.co/ma.elazzab@gmail.com">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">

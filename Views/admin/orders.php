@@ -5,6 +5,14 @@
 }else{
     Redirect::to("landing");
 }
+$orders = new OrdersController();
+$orders_list = $orders->displayOrders();
+if (isset($_POST["validate"])) {
+    $p = new ProductController();
+    $id = $_POST["dashboard_id"];
+    $status = "Validated";
+    $p->updateOrderStatus($id, $status);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,22 +82,22 @@
             <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white z-20" id="nav-content">
                 <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
                     <li class="mr-6 my-2 md:my-0">
-                        <a href="<?php echo BASE_URL; ?>dashboard" class="block py-1 md:py-3 pl-1 align-middle text-pink-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600">
-                            <i class="fas fa-home fa-fw mr-3 text-pink-600"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
+                        <a href="<?php echo BASE_URL; ?>dashboard" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
+                            <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
-                        <a href="<?php echo BASE_URL; ?>ShowProduct" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-pink-500">
+                        <a href="<?php echo BASE_URL; ?>ShowProduct" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
                             <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Products</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
-                        <a href="<?php echo BASE_URL; ?>orders" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-purple-500">
+                        <a href="<?php echo BASE_URL; ?>orders" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
                             <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Orders</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
-                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 border-white hover:border-green-500">
+                        <a href="<?php echo BASE_URL; ?>Clients" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
                             <i class="fas fa-chart-area fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Clients</span>
                         </a>
                     </li>
@@ -102,41 +110,70 @@
     <div class="row my-5">
         <div class="col-md-10 mx-auto">
             <div class="card bg-light p-3">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Produit</th>
-                            <th scope="col">Quantité</th>
-                            <th scope="col">Prix</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Date Order</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($orders as $order): ?>
-                        <tr>
-                            
-                            <td><?= $order['id_order']; ?></td>
-                            <td><?= $order['fullname']; ?></td>
-                            <td><?= $order['product']; ?></td>
-                            <td><?= $order['order_quantity']; ?></td>
-                            <td><?= $order['prix']; ?> MAD</td>
-                            <td><?= $order['total']; ?> MAD</td>
-                            <td><?= $order['date_order']; ?></td>
-                            <td><?= $order['order_status']; ?></td>
-                            <td>
-                                <a href="<?= BASE_URL; ?>orders/edit/<?= $order['id_order']; ?>" class="btn btn-warning">Edit</a>
-                                <a href="<?= BASE_URL; ?>orders/delete/<?= $order['id_order']; ?>" class="btn btn-danger">Delete</a>
-                            </td>
+            <table class="min-w-full">
 
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+<thead>
+    <tr>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Fullname</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Product</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Quantity</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Order Date</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Status</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Action</th>
+    </tr>
+</thead>
+<?php
+foreach ($orders_list as $order_list) :
+?>
+
+    <tbody class="bg-white">
+        <tr>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="flex items-center">
+                    
+
+                    <div class="ml-4">
+                        <div class="text-sm leading-5 font-medium text-gray-900"><?php echo $order_list["fullname"] ?>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="text-sm leading-5 text-gray-900"><?php echo $order_list["product"] ?></div>
+                <!-- <div class="text-sm leading-5 text-gray-500">Web dev</div> -->
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"><?php echo $order_list["order_quantity"] ?></span>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                <?php echo $order_list["date_order"] ?></td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"><?php echo $order_list["order_status"] ?></span>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                <form method="post">
+                    <input name="dashboard_id" type="hidden" value="<?php echo $order_list["id_order"] ?>">
+                    <button name="validate" class="text-indigo-600 hover:text-indigo-900">Validate Order</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+<?php endforeach; ?>
+
+</table>
+
             </div>
         </div>
     </div> 

@@ -20,4 +20,15 @@ class OrdersController{
             Redirect::to("landing");
         }
     }
+    public function getWaitingOrders()
+    {
+        $total = Order::countWaitingOrders();
+        return $total;
+    }
+
+    public function displayOrders()
+    {
+        $orders = Order::displayOrders();
+        return $orders;
+    }
 }

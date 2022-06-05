@@ -29,4 +29,11 @@ class User{
         }
         $stmt = null;
     }
+    static public function displayUsers() {
+        $stmt = DB::connect()->prepare('SELECT * FROM users WHERE id_client != 7');
+        $stmt->execute();
+        $users = $stmt->fetchAll();
+        return $users;
+        $stmt = null;
+    }
 } 

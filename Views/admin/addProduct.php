@@ -1,14 +1,15 @@
 <?php
-if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
+if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true){
     $categories = new CategorieController();
     $categories = $categories->getAllCategories();
-    if (isset($_POST['submit'])){
+    if (isset($_POST["submit"])){
         $product = new ProductController();
         $product->newProduct();
     }
 }else{
     Redirect::to("landing");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,45 +113,45 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
                         <h4>Add Product</h4> 
                     </div>
                     <div class="card-body">
-                        <form action="<?php echo BASE_URL; ?>addproduct" method="post" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="nom_prod" placeholder="Enter Product Name">
+                                <input type="text" class="form-control" name="nom_prod" placeholder="Enter Product Name">
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea class="form-control" id="description" name="descp_prod" rows="3"></textarea>
+                                <textarea class="form-control"  name="descp_prod" rows="3"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="price">Price</label>
-                                <input type="number" class="form-control" id="price" name="prix_prod" placeholder="Enter Product Price">
+                                <input type="number" class="form-control" name="prix_prod" placeholder="Enter Product Price">
                             </div>
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <input type="file" class="form-control" id="image" name="image_prod">
+                                <input type="file" class="form-control"  name="image_prod">
                             </div>
                             <div class="form-group">
                                 <label for="quantité">Quantity</label>
-                                <input type="number" class="form-control" id="quantité" name="quantité" placeholder="Enter Product Quantity" min="1">
+                                <input type="number" class="form-control" name="quantité" placeholder="Enter Product Quantity" min="1">
                             </div>
                             <div class="form-group">
                                 <label for="color">Color</label>
-                                <input type="text" class="form-control" id="color" name="color" placeholder="Enter Product Color">
+                                <input type="text" class="form-control" name="color" placeholder="Enter Product Color">
                             </div>
                             <div class="form-group">
                                 <label for="size">Size</label>
-                                <input type="text" class="form-control" id="size" name="size" placeholder="Enter Product Size">
+                                <input type="text" class="form-control" name="size" placeholder="Enter Product Size">
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="product_categorie_id">
-                                    <option value="">Select Category</option>
                                     <?php foreach($categories as $categorie) : ?>
                                         <option value="<?php echo $categorie['id_categorie']; ?>"><?php echo $categorie['name_categorie']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-
-                            <button type="submit" class="btn btn-warning">Submit</button>
+                            <div class="form-group">
+                            <button name="submit" class="btn btn-warning">Submit</button>
+                            </div>
                         </form>
                     </div>
                 </div>

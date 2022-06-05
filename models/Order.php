@@ -25,4 +25,20 @@ class Order{
         // $stmt->close();
         $stmt = null;
     }
+    public static function countWaitingOrders() {
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) AS total FROM product_order WHERE order_status = "Waiting for validation"');
+        $stmt->execute();
+        $total = $stmt->fetch(PDO::FETCH_OBJ);
+        return $total;
+        $stmt = null;
+    }
+    
+
+    static public function displayOrders() {
+        $stmt = DB::connect()->prepare('SELECT * FROM product_order ORDER BY date_order DESC');
+        $stmt->execute();
+        $orders = $stmt->fetchAll();
+        return $orders;
+        $stmt = null;
+    }
 }

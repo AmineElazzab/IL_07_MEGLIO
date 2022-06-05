@@ -46,6 +46,11 @@ class UsersController{
             Redirect::to("register");
         }
     }
+    public function displayUsers()
+    {
+        $users = User::displayUsers();
+        return $users;
+    }
     public function logout (){
         unset($_SESSION["logged"]);      // On supprime la variable logged de la session   
         unset($_SESSION["fullname"]);   // On supprime la variable fullname de la session 

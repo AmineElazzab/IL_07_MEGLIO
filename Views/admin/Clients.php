@@ -1,10 +1,13 @@
 <?php
-if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
-    $data = new ProductController();
-    $products = $data->getAllProducts();
+  if(isset($_SESSION['admin']) && $_SESSION['admin'] == true && $_SESSION['logged'] == true && $_SESSION["admin"] == 1)  {
+    $data = new OrdersController();
+    $orders = $data->getAllOrders();
 }else{
     Redirect::to("landing");
 }
+$users = new UsersController();
+$users_list = $users->displayUsers();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,61 +101,80 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
 
         </div>
     </nav>
-
-    <div class="container" style="margin-top:200px;">
+<div class="container" style="margin-top:200px;">
     <div class="row my-5">
         <div class="col-md-10 mx-auto">
-        <a href="<?= BASE_URL; ?>addProduct" class="btn btn-warning">addProduct</a>
             <div class="card bg-light p-3">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Image</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Color</th>
-                            <th scope="col">Size</th>
-                            <th scope="col">Action</th>
+            <table class="min-w-full">
 
-                            
+<thead>
+    <tr>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Fullname</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Username</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Telephone</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Email</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Adresse</th>    
+            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Action</th>
+        
+    </tr>
+</thead>
+<?php
+foreach ($users_list as $users) :
+?>
 
+    <tbody class="bg-white">
+        <tr>
 
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach($products as $product): ?>
-                        <tr>
-                            
-                            <td><?= $product['id_prod']; ?></td>
-                            <td><img src="<?= $product['image_prod']; ?>" alt=""></td>
-                            <td><?= $product['nom_prod']; ?></td>
-                            <td><?= $product['descp_prod']; ?></td>
-                            <td><?= $product['prix_prod']; ?></td>
-                            <td><?= $product['quantité']; ?></td>
-                            <td><?= $product['product_categorie_id']; ?></td>
-                            <td><?= $product['color']; ?></td>
-                            <td><?= $product['size']; ?></td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="flex items-center">
+                    
 
-                            <td class=" flex-row justify-content-center">
-                                <a href="<?= BASE_URL; ?>updateProduct<?= $product['id_prod']; ?>" class="btn btn-warning">Edit</a>
-                                <a href="<?= BASE_URL; ?>delete/<?= $product['id_prod']; ?>" class="btn btn-danger">Delete</a>
-                        </tr>
+                    <div class="ml-4">
+                        <div class="text-sm leading-5 font-medium text-gray-900"><?php echo $users["fullname"] ?>
+                        </div>
+                    </div>
+                </div>
+            </td>
 
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="text-sm leading-5 text-gray-900"><?php echo $users["username"] ?></div>
+                <!-- <div class="text-sm leading-5 text-gray-500">Web dev</div> -->
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"><?php echo $users["telephone"] ?></span>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                <?php echo $users["email"] ?></td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"><?php echo $users["adresse"] ?></span>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium"> 
+                <a href="<?php echo BASE_URL; ?>deleteUser/<?php echo $users["id_client"] ?>" class="ml-4 text-red-600 hover:text-red-900">
+                    <i class="fas fa-trash"></i>
+                </a>
+
+            </td>
+        </tr>
+    </tbody>
+<?php endforeach; ?>
+
+</table>
+
             </div>
         </div>
     </div> 
 </div>
-
-
-    <script>
+<script>
     /*Toggle dropdown list*/
     /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
 
@@ -205,3 +227,6 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
         return false;
     }
     </script>
+
+</body>
+</html>
