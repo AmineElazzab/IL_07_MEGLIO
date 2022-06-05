@@ -99,29 +99,59 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
         </div>
     </nav>
 
+    <div class="container" style="margin-top:200px;">
+    <div class="row my-5">
+        <div class="col-md-10 mx-auto">
+        <a href="<?= BASE_URL; ?>addProduct" class="btn btn-warning">addProduct</a>
+            <div class="card bg-light p-3">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Action</th>
 
-<div class="container mx-auto px-4">
-    <div class="flex flex-wrap justify-center">
-        <div class="w-full max-w-sm">
-            <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md mt-6">
+                            
 
-                <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
-                    <?php echo $title; ?>
-                </div>
 
-                <div class="w-full p-6">
-                    <?php echo $content; ?>
-                </div>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($products as $product): ?>
+                        <tr>
+                            
+                            <td><?= $product['id_prod']; ?></td>
+                            <td><img src="<?= $product['image_prod']; ?>" alt=""></td>
+                            <td><?= $product['nom_prod']; ?></td>
+                            <td><?= $product['descp_prod']; ?></td>
+                            <td><?= $product['prix_prod']; ?></td>
+                            <td><?= $product['quantité']; ?></td>
+                            <td><?= $product['product_categorie_id']; ?></td>
+                            <td><?= $product['color']; ?></td>
+                            <td><?= $product['size']; ?></td>
+
+                            <td class=" flex-row justify-content-center">
+                                <a href="<?= BASE_URL; ?>updateProduct<?= $product['id_prod']; ?>" class="btn btn-warning">Edit</a>
+                                <a href="<?= BASE_URL; ?>delete/<?= $product['id_prod']; ?>" class="btn btn-danger">Delete</a>
+                        </tr>
+
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
+    </div> 
 </div>
 
 
-
-
-
-    
     <script>
     /*Toggle dropdown list*/
     /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/

@@ -1,6 +1,11 @@
 
 <?php include './Views/includes/navbar.php'; ?>
 
+<?php {
+    $data = new ProductController();
+    $products = $data->getRandomProducts();
+}
+?>
 
 <!-- Categorie Begin -->
 <div class="instagram">
@@ -61,125 +66,29 @@
 </section>
 <!-- Banner Section End -->
 
-<!-- Trend Section Begin -->
-<section class="trend spad" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6" style="text-align:center">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Hot Trend</h4>
+<section class="flex gap-14 justify-center my-5 cards flex-wrap">
+            <?php foreach ($products as $product) {  ?>
+                <!-- loop through the products -->
+                <div class="">
+                    <div>
+                        <img src="<?php echo $product['image_prod']; ?>" alt="image" style="width: 200px;">
                     </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/ht-1.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Chain bucket bag</h6>
-                            
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/ht-2.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Pendant earrings</h6>
-                            
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/ht-3.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Cotton T-Shirt</h6>
-                            
-                            <div class="product__price">$ 59.0</div>
-                        </div>
+                    
+                    <div class="flex gap-2 justify-center">
+
+                       
+                        <form id="form" method="post" action="<?php echo BASE_URL ?>ProductDetails">
+                            <input type="hidden" name="id_prod" id="id_prod">
+                        </form>
+
+                        <a onclick="submitForm(<?php echo $product['id_prod'];?>)" class="bg-red-600  text-white rounded-full w-2/3 text-center h-10 pt-2 cursor-pointer font-bold font-proza duration-500 ease-in-out hover:scale-95 ">SEE MORE</a>
+
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Best seller</h4>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/bs-1.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Cotton T-Shirt</h6>
-                            
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/bs-2.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Zip-pockets pebbled tote <br />briefcase</h6>
-                            
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/bs-3.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Round leather bag</h6>
-                           
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Feature</h4>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/f-1.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Bow wrap skirt</h6>
-                            
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/f-2.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Metallic earrings</h6>
-                           
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="./Views/assets/img/trend/f-3.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Flap cross-body bag</h6>
-                            
-                            <div class="product__price">$ 59.0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Trend Section End -->
+
+            <?php } ?>
+
+        </section>
 
 <!-- Discount Section Begin -->
 <section class="discount">

@@ -6,6 +6,11 @@ class ProductController{
         return $products;
         
     }
+    public function getRandomProducts()
+    {
+        $products = Product::getRandom(3);
+        return $products;
+    }
     public function getProductByCategorie(){
         if(isset($id)){
             $data = array(
@@ -31,5 +36,24 @@ class ProductController{
         Redirect::to("bag");
 
 
+    }
+    public function newProduct(){
+        if(isset($_POST["submit"])){
+            $data = array(
+                'nom_prod' => $_POST['nom_prod'],
+                'descp_prod' => $_POST['descp_prod'],
+                'prix_prod' => $_POST['prix_prod'],
+                'image_prod' => $this->uploadPhoto(),
+                'qantité' => $_POST['qantité'],
+                'color' => $_POST['color'],
+                'size' => $_POST['size'],
+                'product_catetgory_id' => $_POST['product_catetgory_id']
+            );
+            $result = Product::addProduct($data);
+            if($result == true){
+                Session::set("success", "Product added successfully");
+                Redirect::to("admin/products");
+            }
+        }
     }
 }

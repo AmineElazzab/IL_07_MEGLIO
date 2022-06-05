@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,4 +30,11 @@
 <title>il-meglio.</title>
 </head>
 <body>
+<div class="row m-0">
+        <div class="col-md-12">
+            <?php
+            include('views/includes/alerts.php');
+            ?>
+        </div>
+    </div>
 

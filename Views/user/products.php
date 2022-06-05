@@ -46,6 +46,7 @@
                 <p  class=" text-start fs-6 mt-3"><?php echo $product['nom_prod'];?></p>
                 <p  class=" text-start fs-6 fw-bolder">MAD <?php echo $product['prix_prod'];?></p>
             </a>
+            
         </div>
     <?php
         endforeach;

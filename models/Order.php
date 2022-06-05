@@ -1,6 +1,13 @@
 <?php
 
 class Order{
+    public static function getAll(){
+        $stmt= DB::connect()->prepare("SELECT * FROM product_order");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        // $stmt->close();
+        $stmt=null;
+    }
     static public function createOrder($data) {
         $stmt = DB::connect()->prepare('INSERT INTO product_order (fullname, product, order_quantity, prix, total, order_status)
         VALUES (:fullname, :product, :order_quantity, :prix, :total, :order_status)');
@@ -15,7 +22,7 @@ class Order{
         }else{
             return 'error';
         }
-        $stmt->close();
+        // $stmt->close();
         $stmt = null;
     }
 }

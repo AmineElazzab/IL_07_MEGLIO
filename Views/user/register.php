@@ -1,9 +1,12 @@
 <?php
 
-if(isset($_POST['submit'])){
-  $Client = new ClientControllers();
-  $Client->addClient();
-}
+  if(isset($_SESSION["logged"]) && $_SESSION["logged"] == true) {  // if the user is logged in 
+        Redirect::to("landing");
+    }
+  if(isset($_POST['submit'])){
+      $createuser = new UsersController();
+      $createuser ->register();
+    }
 ?>
     <!-- component -->
 <section class="flex flex-col md:flex-row h-screen items-center">
@@ -22,40 +25,32 @@ if(isset($_POST['submit'])){
                         <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Become a member</h1>
                         <h4>Become a Member — you'll enjoy exclusive deals, offers, invites and rewards.</h4>
                     </div>
-    <form class="mt-6" action="#" method="POST">
+    <form class="mt-6" method="POST">
         <div>
-          <label class="block text-gray-700">Fisrt Name</label>
-          <input type="text" name="nom" id="nom" placeholder="Enter Fisrt Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
+          <label class="block text-gray-700">Fullname</label>
+          <input type="text" name="fullname" id="fullname" placeholder="Enter Fisrt Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
         </div>
         <div>
-          <label class="block text-gray-700">Last Name</label>
-          <input type="text" name="prenom" id="prenom" placeholder="Enter Last Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
+          <label class="block text-gray-700">Username</label>
+          <input type="text" name="username" id="username" placeholder="Enter Fisrt Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
         </div>
-        <!-- <div>
-          <label class="block text-gray-700">CIN</label>
-          <input type="text" name="cin" id="cin" placeholder="Enter CIN" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
-        </div> -->
-        <div>
+        <div class="mt-2">
           <label class="block text-gray-700">Phone</label>
           <input type="tel" id="telephone" name="telephone" placeholder="123-45-678"  class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
         </div>
-        <div>
+        <div class="mt-2">
           <label class="block text-gray-700">Email Address</label>
           <input type="email" name="email" id="email" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
         </div>
-        <div>
+        <div class="mt-2">
           <label class="block text-gray-700">Address</label>
           <input type="text" name="adresse" id="adresse" placeholder="Enter  Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
         </div>
-      <div class="mt-4">
+      <div class="mt-2">
         <label class="block text-gray-700">Password</label>
         <input type="password" name="passwords" id="passwords" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none" required>
       </div>
-      <!-- <div class="text-right mt-2">
-        <a href="#" class="text-sm font-semibold text-gray-700 hover:text-orange-700 focus:text-blue-700">Forgot Password?</a>
-      </div> -->
-
-      <button type="submit" name="submit" class="w-full block bg-orange-500 hover:bg-orange-400 focus:bg-orange-400 text-white font-semibold rounded-lg
+      <button name="submit" class="w-full block bg-orange-500 hover:bg-orange-400 focus:bg-orange-400 text-white font-semibold rounded-lg
             px-4 py-3 mt-6" value="submit">Become a member</button>
             <hr class="my-6 border-gray-300 w-full">
         

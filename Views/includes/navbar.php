@@ -8,7 +8,6 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
-        <li><span class="icon_search search-switch"></span></li>
         <?php if (!isset($_SESSION["logged"])) : { ?>
                         <button tabindex="0" class="flex-wrap">
                             <div class="w-10 rounded-full">
@@ -27,18 +26,20 @@
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <span class="dropdown-item"><?php echo $_SESSION["fullname"]; ?></span>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>/profil" class="justify-between hover:text-red-800">My Profile </a></li>
-    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>heart">Wishlist</a></li>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>MyOrder">My Orders</a></li>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Log out</a></li>
   </ul>
 </div>
                     <?php } ?>
                 <?php endif; ?>
-            <li><i class="fa-solid fa-magnifying-glass"></i></span></li>
-            <li><a href="heart"><i class="fa-solid fa-heart"></i>
-            </a></li>
-            <li><a href="bag"><i class="fa-solid fa-cart-shopping">1</i>
-            </a></li>
+                <li><a href="bag"><i class="fa-solid fa-cart-shopping">
+                            <?php if(isset($_SESSION["count"]) && $_SESSION["count"] > 0):?>
+                             (<?php echo $_SESSION["count"];?>)      
+                                <?php else:?>
+                                   (0)
+                            <?php endif;?> 
+                            </i>
+                            </a></li>
         </ul>
         <div class="offcanvas__logo">
             <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
@@ -80,10 +81,7 @@
                 <li><a href="contact">Contact</a></li>
             </ul>
         </div>
-        <!-- <div class="offcanvas__auth">
-            <a href="login">Login</a>
-            <a href="register">Register</a>
-        </div> -->
+        
     </div>
     <!-- Offcanvas Menu End -->
 
@@ -162,7 +160,6 @@
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <span class="dropdown-item"><?php echo $_SESSION["fullname"]; ?></span>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>/profil" class="justify-between hover:text-red-800">My Profile </a></li>
-    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>heart">Wishlist</a></li>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>MyOrder">My Orders</a></li>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Log out</a></li>
   </ul>
@@ -170,9 +167,6 @@
                     <?php } ?>
                 <?php endif; ?>
                         <ul class="header__right__widget">
-                            <li><i class="fa-solid fa-magnifying-glass"></i></span></li>
-                            <li><a href="heart"><i class="fa-solid fa-heart"></i>
-                            </a></li>
                             <li><a href="bag"><i class="fa-solid fa-cart-shopping">
                             <?php if(isset($_SESSION["count"]) && $_SESSION["count"] > 0):?>
                              (<?php echo $_SESSION["count"];?>)      
