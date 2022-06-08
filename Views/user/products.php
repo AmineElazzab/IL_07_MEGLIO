@@ -42,7 +42,8 @@
                 <input type="hidden" name="id_prod" id="id_prod">
             </form>
             <a onclick="submitForm(<?php echo $product['id_prod']; ?>)">
-                <img class="img-fluid rounded-3 shadow" src="<?php echo $product['image_prod']; ?>" style="cursor:pointer" alt="">      
+                <!-- <img class="img-fluid rounded-3 shadow" src="<?php echo $product['image_prod']; ?>" style="cursor:pointer" alt="">   -->
+                <img class="img-fluid rounded-3 shadow" src=<?php echo "./Views/assets/img/product/".$product['image_prod']; ?> style="cursor:pointer" alt="">  
                 <p  class=" text-start fs-6 mt-3"><?php echo $product['nom_prod'];?></p>
                 <p  class=" text-start fs-6 fw-bolder">MAD <?php echo $product['prix_prod'];?></p>
             </a>

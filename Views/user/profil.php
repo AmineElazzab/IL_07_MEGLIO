@@ -5,7 +5,11 @@
     <div class="row">
         <div class="col-md-6 border-right">
             <div class="p-3 py-5">
-            
+            <?php if (!isset($_SESSION["logged"])) : { ?>
+                <h2 class="pt-5 text-center" style="margin-top:200px;">Become a Member — you'll enjoy exclusive deals, offers, invites and rewards.</h2></br>
+                <a href="<?php echo BASE_URL;?>login" class="btn btn-outline-dark btn-lg btn-block">LOGIN</a>
+                    <?php }
+                else : { ?>
                 <p class="fs-1 text-dark">Welcome back, <?php echo $_SESSION["fullname"]; ?></p>
                 <p class="fs-4 text-dark mt-5">You have <?php echo isset($_SESSION["count"]) ? $_SESSION["count"] : 0;?> items in your bag</p>
                 <p class="fs-4 text-dark mt-5">Total: <?php echo isset($_SESSION["totaux"]) ? $_SESSION["totaux"] : 0;?> MAD</p>
@@ -16,9 +20,11 @@
                 <a href="<?php echo BASE_URL;?>MyOrder" class="btn btn-outline-dark btn-lg btn-block">View orders</a>
                 <a href="<?php echo BASE_URL;?>logout" class="btn btn-outline-dark btn-lg btn-block">Logout</a>
 
-
+                <?php } ?>
+                <?php endif; ?>
                 </div>
             </div>
+           
             <div class="col-md-6 ">
                 <div class="">
                    <img class="" src="./Views/assets/img/Artboard 1.png">

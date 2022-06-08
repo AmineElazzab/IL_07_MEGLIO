@@ -22,10 +22,10 @@
   <div class="col-xl-auto col-lg-auto">
                     <div class="header__logo">
                         <a href="<?php echo BASE_URL; ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
-                        <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Become a member</h1>
+                        <h1 class="text-xl md:text-2xl font-bold leading-tight mt-">Become a member</h1>
                         <h4>Become a Member — you'll enjoy exclusive deals, offers, invites and rewards.</h4>
                     </div>
-    <form class="mt-6" method="POST">
+    <form class="mt-2" method="POST">
         <div>
           <label class="block text-gray-700">Fullname</label>
           <input type="text" name="fullname" id="fullname" placeholder="Enter Fisrt Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>

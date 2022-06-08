@@ -52,10 +52,9 @@ class UsersController{
         return $users;
     }
     public function logout (){
-        unset($_SESSION["logged"]);      // On supprime la variable logged de la session   
-        unset($_SESSION["fullname"]);   // On supprime la variable fullname de la session 
-        unset($_SESSION["username"]);   // On supprime la variable username de la session
-        unset($_SESSION["admin"]);      // On supprime la variable admin de la session
+        
+   session_destroy();
+   // On supprime la variable admin de la session
         Redirect::to("login");
     }
 }

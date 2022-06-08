@@ -29,16 +29,16 @@
                         <li><a href="profil">My Account</a></li>
                         <li><a href="return">Return</a></li>
                         <li><a href="shipping">Shipping</a></li>
-                        <li><a href="heart">Wishlist</a></li>
+                        <!-- <li><a href="heart">Wishlist</a></li> -->
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-8 col-sm-8">
                 <div class="footer__newslatter">
                     <h6>NEWSLETTER</h6>
-                    <form action="#">
-                        <input type="email" placeholder="Email">
-                        <button type="submit" class="site-btn">Subscribe</button>
+                    <form>
+                        <input type="text" placeholder="">
+                        <button type="submit" class="site-btn"><a href="mailto:ma.elazzab@gmail.com" target="_blank">Send Email</a></button>
                     </form>
                     <div class="footer__social">
                         <a href="https://www.facebook.com/Boutiiqua/" target="_blank"><i class="fa fa-facebook"></i></a>

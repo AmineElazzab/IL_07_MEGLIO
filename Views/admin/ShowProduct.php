@@ -103,11 +103,18 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
     <div class="row my-5">
         <div class="col-md-10 mx-auto">
         <a href="<?= BASE_URL; ?>addProduct" class="btn btn-warning">addProduct</a>
-            <div class="card bg-light p-3">
+        <form id="form" action="<?php echo BASE_URL?>updateProduct" method="post">
+            <input type="hidden" name="id_prod" id="id_prod">
+        </form>
+        <form id="delete_form" action="<?php echo BASE_URL?>deleteProduct" method="post">
+            <input type="hidden" name="delete_id_prod" id="delete_id_prod">
+        </form>
+        <div class="card bg-light p-3">
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">id</th>
+                            <th scope="col">Reference</th>
                             <th scope="col">Image</th>
                             <th scope="col">Name</th>
                             <th scope="col">Description</th>
@@ -129,7 +136,9 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
                         <tr>
                             
                             <td><?= $product['id_prod']; ?></td>
-                            <td><img src="<?= $product['image_prod']; ?>" alt=""></td>
+                            <!-- <td><?= $product['rfer']; ?></td> -->
+                            <!-- <td><img src="<?= $product['image_prod']; ?>" alt=""></td> -->
+                            <td><img src=<?= "./Views/assets/img/product/".$product['image_prod'] ?> alt=""></td>
                             <td><?= $product['nom_prod']; ?></td>
                             <td><?= $product['descp_prod']; ?></td>
                             <td><?= $product['prix_prod']; ?></td>

@@ -23,7 +23,7 @@
                     <?php foreach ($_SESSION as $name => $product) : ?>
                         <?php if (substr($name, 0,9)=="products_") : ?>
                             <tr>
-                                <td> <img src=<?= $product['image']?> alt=""></td>
+                                <td> <img src=<?= "./Views/assets/img/product/".$product["image"] ?> alt=""></td>
                                 <td><?php echo $product["name"]; ?></td>
                                 <td><?php echo $product["price"]; ?></td>
                                 <td><?php echo $product["quantity"]; ?></td>
@@ -47,7 +47,7 @@
                     <div id="paypal-button-container"></div>
                 <?php elseif(isset($_SESSION["count"]) && $_SESSION["count"] > 0):?>
                     <a href="<?php echo BASE_URL;?>login" class="btn btn-link">Connectez vous pour terminer vos achats</a>
-                <?php endif;?> 
+                <?php endif;?>
            
 
             <div class="col-4 col-md-4 float-right ">
@@ -72,19 +72,21 @@
                     <?php if(isset($_SESSION["count"]) && $_SESSION["count"] > 0) :?>
                         <form method="post" action="<?php echo BASE_URL;?>emptybag">
                              <button type="submit" class="btn btn-outline-secondary">empty bag</button>
-                         </form>
+                         </form>                     
                          <form method="post" id="addOrder" action="<?php echo BASE_URL;?>addOrder">
 
                          </form>
+
             <?php endif; ?>
             </div>
         </div>
     </div>
 </div>
 
+
 <script>
   let amount = document.querySelector('#amount').dataset.amount;
-  let finalAmount = Math.floor(amount / 9.92);
+  let finalAmount = Math.floor(amount / 9.86);
   paypal.Buttons({
     createOrder: function(data, actions) {
       // This function sets up the details of the transaction, including the amount and line item details.
@@ -100,7 +102,7 @@
       // This function captures the funds from the transaction.
       return actions.order.capture().then(function(details) {
         // This function shows a transaction success message to your buyer.
-        alert('Transaction completed by ' + details.payer.name.given_name);
+        alert('Commande effectuée par ' + details.payer.name.given_name);
         document.querySelector('#addOrder').submit();
       });
     }

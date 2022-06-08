@@ -94,7 +94,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li><a href="<?php echo BASE_URL ?>">Home</a></li>
-                            <li><a href="">Collection</a>
+                            <li><a>Collection</a>
                                 <ul class="dropdown">
                                 <form action="products" method="post">
                                         <!-- <li><a href="hoods?id=12">Hoods</a></li> -->

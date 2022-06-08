@@ -8,7 +8,7 @@ require_once ('./Views/includes/header.php');
 $home = new HomeController();
 $admin = new AdminController();
 
-$pages = [ 'ProductDetails','landing','ShowProduct','Clients','login','register','sweats','t-shirts','accessoires','caps','addOrder','contact','about-the-store','logout','bag','heart','payment','profil','return','shipping','terms-and-policies','dashboard','updateProduct','deleteProduct','addProduct','emptybag','cancelbag','checkout','orders','MyOrder','products','Showproducts'];
+$pages = [ 'ProductDetails','landing','ShowProduct','Clients','login','register','sweats','t-shirts','validation','caps','addOrder','contact','about-the-store','logout','bag','heart','payment','profil','return','shipping','terms-and-policies','dashboard','updateProduct','deleteProduct','addProduct','emptybag','cancelbag','checkout','orders','MyOrder','products','Showproducts'];
 
 if(isset($_GET['page'])) {
     if (in_array($_GET['page'], $pages)) {  // if the page is in the array
