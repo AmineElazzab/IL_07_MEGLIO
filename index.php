@@ -8,12 +8,12 @@ require_once ('./Views/includes/header.php');
 $home = new HomeController();
 $admin = new AdminController();
 
-$pages = [ 'ProductDetails','landing','ShowProduct','Clients','login','register','sweats','t-shirts','validation','caps','addOrder','contact','about-the-store','logout','bag','heart','payment','profil','return','shipping','terms-and-policies','dashboard','updateProduct','deleteProduct','addProduct','emptybag','cancelbag','checkout','orders','MyOrder','products','Showproducts'];
+$pages = [ 'ProductDetails','landing','ShowProduct','Clients','login','register','sweats','t-shirts','validation','caps','addOrder','contact','about-the-store','logout','bag','heart','payment','profil','return','shipping','terms-and-policies','dashboard','updateProduct','deleteProduct','addProduct','emptybag','cancelbag','checkout','orders','MyOrder','products','Showproducts' , 'Categorie' , 'addCategory' , 'deleteCategory', 'updateProfil'];
 
 if(isset($_GET['page'])) {
     if (in_array($_GET['page'], $pages)) {  // if the page is in the array
         $page = $_GET['page'];
-        if( $page === "dashboard" || $page === "deleteProduct" || $page === "updateProduct" || $page === "addProduct" ||  $page === "Showproducts" || $page === "orders" || $page === "ShowProduct" || $page === "Clients") {
+        if( $page === "dashboard" || $page === "deleteProduct" || $page === "updateProduct" || $page === "addProduct" ||  $page === "Showproducts" || $page === "orders" || $page === "ShowProduct" || $page === "Clients" || $page === "Categorie" || $page === "addCategory" || $page === "deleteCategory" ) {
             if(isset($_SESSION['admin']) && $_SESSION['admin'] == true && $_SESSION['logged'] == true && $_SESSION["admin"] == 1)  {                
                 $admin->index($page);
         }else{

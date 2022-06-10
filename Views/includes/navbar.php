@@ -1,7 +1,7 @@
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
@@ -48,7 +48,7 @@
             <ul>
                 <li href="<?php echo BASE_URL ?>"><a>Home</a></li>
                 <span class="dropdown">
-                <li><a class="dropbtn" href="">Collection</a>
+                <li><a class="dropbtn">Collection</a>
                     <ul class="dropdown-content">
                                     <form action="products" method="post">
                                         <input type="hidden" name="id" value="12">
@@ -192,13 +192,3 @@
                 </div>
             </div>
     </div>
-    <!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search End -->

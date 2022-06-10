@@ -11,12 +11,15 @@
                     <?php }
                 else : { ?>
                 <p class="fs-1 text-dark">Welcome back, <?php echo $_SESSION["fullname"]; ?></p>
+                <p class="fs-5 text-gray text-decoration-underline mt-3">Your Address: <?php echo $_SESSION["adresse"]; ?></p>
+                <p class="fs-5 text-gray text-decoration-underline mt-3">Your Email: <?php echo $_SESSION["email"]; ?></p>
+                <p class="fs-5 text-gray text-decoration-underline mt-3">Your Phone: <?php echo $_SESSION["phone"]; ?></p>
+
                 <p class="fs-4 text-dark mt-5">You have <?php echo isset($_SESSION["count"]) ? $_SESSION["count"] : 0;?> items in your bag</p>
                 <p class="fs-4 text-dark mt-5">Total: <?php echo isset($_SESSION["totaux"]) ? $_SESSION["totaux"] : 0;?> MAD</p>
                 <a href="<?php echo BASE_URL;?>bag" class="btn btn-outline-dark btn-lg btn-block mt-5">View Bag</a>
        
-                <a href="<?php echo BASE_URL;?>addaddress" class="btn btn-outline-dark btn-lg btn-block">Add new address</a>
-                <a href="<?php echo BASE_URL;?>editaddress" class="btn btn-outline-dark btn-lg btn-block">Edit address</a>
+                <a href="<?php echo BASE_URL;?>updateProfil" class="btn btn-outline-dark btn-lg btn-block">Edit Your Profil</a>
                 <a href="<?php echo BASE_URL;?>MyOrder" class="btn btn-outline-dark btn-lg btn-block">View orders</a>
                 <a href="<?php echo BASE_URL;?>logout" class="btn btn-outline-dark btn-lg btn-block">Logout</a>
 

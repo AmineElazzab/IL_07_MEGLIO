@@ -6,6 +6,8 @@
   if(isset($_POST['submit'])){
       $createuser = new UsersController();
       $createuser ->register();
+      // var_dump($_POST);
+      // die();
     }
 ?>
     <!-- component -->

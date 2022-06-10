@@ -2,15 +2,11 @@
 <?php include './Views/includes/navbar.php'; ?>
 
 <?php
-    // $data = new ProductController();
-    // $products = $data->getAllProducts();
-    if(isset($_POST['try']))
-    {
-        $ctr=new CategorieController();
-        $res=$ctr->getProByCategorie();
-        // var_dump($res);
-        // die();
-    }
+error_reporting(0);
+  $order = new OrdersController();
+    $orders = $order->getUserOrders();
+   
+
 ?>  
 
 
@@ -25,49 +21,55 @@
     </div>
 </div>
 </div>
-
-        <!-- end gallery -->
-        
+        <!-- end -->
+<div class="content">
     
-
-<div class="container" style="margin-top:200px;">
-    <div class="row my-5">
-        <div class="col-md-10 mx-auto">
-            <div class="card bg-light p-3">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-
-                        <th>image</th>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Color</th>
-                        <th>Size</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-            <?php if (count($res) > 0) :?>
-            <?php foreach ($res as $product) :?>
-                                <td> <img src=<?= $product['image']?> alt=""></td>
-                                <td><?php echo $product["name"]; ?></td>
-                                <td><?php echo $product["price"]; ?></td>
-                                <td><?php echo $product["quantity"]; ?></td>
-                                <td><?php echo $product["color"]; ?></td>
-                                <td><?php echo $product["size"]; ?></td>
-                                <td><?php echo $product["total"]; ?> MAD</td>
-                                <td><?php echo $product["status"]; ?></td>     
-                            </tr>
-                            <?php endforeach;
-                                    endif; ?>
-                </tbody>
-            </table>
-
+<div class="container" style="margin-top:100px; margin-bottom:150px;">
+            <div class="text-center mt-5">
+                <h1 class="text-2xl font-bold">My Orders</h1>
             </div>
-        </div>
-    </div> 
-</div>
+            <?php if (!isset($_SESSION["logged"])) : { ?>
+                <h2 class="pt-5 text-center" style="margin-top:200px;">You Don't Have Any Orders Yet ? Log In For Shipping</h2></br>
+                <a href="<?php echo BASE_URL;?>login" class="btn btn-outline-dark btn-lg btn-block">LOGIN</a>
+                    <?php }
+                else : { ?>
+
+      <div class="table-responsive custom-table-responsive">
+
+        <table class="table custom-table">
+          <thead>
+            <tr>  
+
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>prix</th>
+                        <th>Total</th>
+                        <th>Date of Order</th>
+                        <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php if (count($orders) > 0) :?>
+            <?php foreach ($orders as $product_order) :?>
+            <tr scope="row">
+                                <td><?php echo $product_order->product; ?></td>
+                                <td><?php echo $product_order->order_quantity; ?></td>
+                                <td><?php echo $product_order->prix; ?></td>
+                                <td><?php echo $product_order->total; ?></td>
+                                <td><?php echo $product_order->date_order; ?> MAD</td>
+                                <td><?php echo $product_order->order_status; ?></td>     
+            </tr>
+                                    <?php endforeach;
+                                    endif; ?>
+
+          </tbody>
+        </table>
+      </div>
+
+<?php } ?>
+                <?php endif; ?>
+    </div>
+
+  </div>
 
 <?php include './Views/includes/footer.php'; ?>

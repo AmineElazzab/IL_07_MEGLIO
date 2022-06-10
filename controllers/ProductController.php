@@ -6,6 +6,10 @@ class ProductController{
         return $products;
         
     }
+    public function getProductA(){
+        $products = Product::getProductA();
+        return $products;
+    }
     public function getRandomProducts()
     {
         $products = Product::getRandom(6);
@@ -92,7 +96,6 @@ class ProductController{
     }
     public function updateProduct(){
         if(isset($_POST["submit"])){
-            $oldImage = $_POST["product_current_image"];
             $data = array(
                 "id_prod" => $_POST["id_prod"],
                 "nom_prod" => $_POST["nom_prod"],
@@ -102,7 +105,7 @@ class ProductController{
                 "quantité" => $_POST["qte"],
                 "color" => $_POST["color"],
                 "size" => $_POST["size"],
-                "prId" => $_POST["prId"],
+                // "prId" => $_POST["prId"],
             );
             $result = Product::editProduct($data);
             if($result === "ok"){
@@ -126,5 +129,19 @@ class ProductController{
             return $imageName; 
         }
         return $oldImage;
+    }
+    public function deleteProduct(){
+        if(isset($_POST["delete_id_prod"])){
+            $data = array(
+                "id_prod" => $_POST["delete_id_prod"]
+            );
+            $result = Product::deleteProduct($data);
+            if($result === "ok"){
+                Session::set("success","Produit supprimé");
+                Redirect::to("ShowProduct");
+            }else{
+                echo $result;
+            }
+        }
     }
 }

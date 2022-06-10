@@ -27,5 +27,28 @@ class  Categorie{
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    static public function addCategory(){
+        $stmt = DB::connect()->prepare('INSERT INTO categorie (name_categorie) VALUES (:name_categorie)');
+        $stmt->bindParam(':name_categorie',$_POST['name_categorie']);
+        if($stmt->execute()){
+            return 'ok';
+        }else{
+            return 'error';
+        }
+        $stmt = null;
+    }
+    static public function deleteCategory($data){
+            $id = $data['id_categorie'];
+            $stmt = DB::connect()->prepare('DELETE FROM categorie WHERE id_categorie=:id');
+            $stmt->execute(array(':id' => $id));
+            if($stmt->execute()){
+                return 'ok';
+            }else{
+                return 'error';
+            }
+            $stmt = null;
+      
+       
+    }
 
 }

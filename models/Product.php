@@ -8,6 +8,12 @@
         //  $stmt->close();
          $stmt = null;
      }
+     static public function getProductA(){
+         $stmt = DB::connect()->prepare('SELECT * FROM product INNER JOIN categorie ON product.product_categorie_id = categorie.id_categorie');
+         $stmt->execute();
+         return $stmt->fetchAll();
+         $stmt->null;
+     }
      static public function getRandom($count)
      {
          $stmt = DB::connect()->prepare("SELECT * FROM product order by rand() limit " . $count);
@@ -115,23 +121,35 @@
                 quantité=:qte,
                 color=:color,
                 size=:size,
-                product_category_id=:prId
-                WHERE product_id=:product_id
+                -- product_category_id=:prId
+                WHERE id_prod=:id_prod
         ');
         $stmt->bindParam(':id_prod',$data['id_prod']);
         $stmt->bindParam(':nom_prod',$data['nom_prod']);
         $stmt->bindParam(':descp_prod',$data['descp_prod']);
         $stmt->bindParam(':prix_prod',$data['prix_prod']);
         $stmt->bindParam(':image_prod',$data['image_prod']);
-        $stmt->bindParam(':qte',$data['qte']);
+        $stmt->bindParam(':qte',$data['qauantité']);
         $stmt->bindParam(':color',$data['color']);
         $stmt->bindParam(':size',$data['size']);
-        $stmt->bindParam(':prId',$data['prId']);
+        // $stmt->bindParam(':prId',$data['prId']);
         if($stmt->execute()){
             return 'ok';
         }else{
             return 'error';
         }
         $stmt = null;
+    }
+    static public function deleteProduct($data){
+            $id = $data['id_prod'];
+            $stmt = DB::connect()->prepare('DELETE FROM product WHERE id_prod = :id');
+            $stmt->bindParam(':id',$id);
+            if($stmt->execute()){
+                return 'ok';
+            }else{
+                return 'error';
+            }
+            $stmt = null;
+       
     }
  }

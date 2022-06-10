@@ -10,6 +10,10 @@ class UsersController{
                 $_SESSION["logged"] = true;
                 $_SESSION["username"] = $result->username;
                 $_SESSION["fullname"] = $result->fullname;
+                $_SESSION["id_client"] = $result->id_client;
+                $_SESSION["adresse"] = $result->adresse;
+                $_SESSION["email"] = $result->email;
+                $_SESSION["phone"] = $result->telephone;
                 $_SESSION["admin"] = $result->admin;
                 
                 if($result->admin == 1) {
@@ -50,6 +54,34 @@ class UsersController{
     {
         $users = User::displayUsers();
         return $users;
+    }
+    public function updateUser()
+    {
+        $data = array(
+            "fullname" => $_POST["fullname"],
+            "username" => $_POST["username"],
+            "telephone" => $_POST["telephone"],
+            "email" => $_SESSION["email"],
+            "adresse" => $_SESSION["adresse"],
+            "id_client" => $_SESSION["id_client"],
+        );
+        $result = User::update($data);
+        if ($result === "ok") {
+            Session::set("success", "user updated");
+            Redirect::to("profil");
+        } else {
+            echo $result;
+        }
+        
+    }
+    public function getUser(){
+        if(isset($_POST['id_client'])){
+            $data = array(
+                'id' => $_POST['id_client']
+            );
+            $user = User::getUserById($data);	
+            return $user;
+        }
     }
     public function logout (){
         

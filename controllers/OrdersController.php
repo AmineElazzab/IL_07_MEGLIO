@@ -31,4 +31,10 @@ class OrdersController{
         $orders = Order::displayOrders();
         return $orders;
     }
+    public function getUserOrders()
+    {
+        $orders = Order::getUserOrders($_SESSION["id_client"]);
+        return $orders;
+    }
+    
 }

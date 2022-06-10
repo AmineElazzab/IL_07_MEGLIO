@@ -4,6 +4,7 @@
 <?php
     $data = new ProductController();
     $product = $data->getProduct();
+    $products = $data->getRandomProducts();
 ?>
 
 
@@ -126,6 +127,32 @@
     </div>
   </div>
 </section>
+<!-- component -->
+<!-- component -->
+<p class="text-center text-gray-500 fs-2">A proposal for you</p>
+<section class="flex gap-14 justify-center my-5 cards flex-wrap">
+            <?php foreach ($products as $product) {  ?>
+                <!-- loop through the products -->
+                <div class="">
+                    <div>
+                        <img src=<?= "./Views/assets/img/product/".$product['image_prod'] ?> style="width: 200px;">
+                    </div>
+                    
+                    <div class="flex gap-2 justify-center">
+
+                       
+                        <form id="form" method="post" action="<?php echo BASE_URL ?>ProductDetails">
+                            <input type="hidden" name="id_prod" id="id_prod">
+                        </form>
+
+                        <a onclick="submitForm(<?php echo $product['id_prod'];?>)" class=" text-black rounded-full w-2/3 text-center h-10 pt-2 cursor-pointer font-bold font-proza duration-500 ease-in-out hover:scale-95 ">SEE MORE</a>
+
+                    </div>
+                </div>
+
+            <?php } ?>
+
+        </section>
 
 
       

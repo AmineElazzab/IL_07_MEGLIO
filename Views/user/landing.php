@@ -61,35 +61,15 @@
 
 
 <!-- Banner Section Begin -->
-<section class="banner set-bg mt-4 m-0" data-setbg="./Views/assets/img/collection/1.jpg">
+<div class="banner set-bg mt-4 m-0" data-setbg="./Views/assets/img/collection/1.jpg"></div>   
     
 </section>
 <!-- Banner Section End -->
-<section id="services" class="relative py-60 bg-green-50" data-scroll-section>
-  <h2 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -skew-x-12 whitespace-nowrap text-6xl sm:text-9xl font-extrabold py-4">
-    <span class="inline-block" data-scroll data-scroll-repeat data-scroll-speed="3" data-scroll-call="randomizeTextColor">S</span>
-    <span class="inline-block" data-scroll data-scroll-repeat data-scroll-speed="2" data-scroll-call="randomizeTextColor">e</span>
-    <span class="inline-block" data-scroll data-scroll-repeat data-scroll-speed="3" data-scroll-call="randomizeTextColor">r</span>
-    <span class="inline-block" data-scroll data-scroll-repeat data-scroll-speed="2" data-scroll-call="randomizeTextColor">v</span>
-    <span class="inline-block" data-scroll data-scroll-repeat data-scroll-speed="3" data-scroll-call="randomizeTextColor">i</span>
-    <span class="inline-block" data-scroll data-scroll-repeat data-scroll-speed="2" data-scroll-call="randomizeTextColor">c</span>
-    <span class="inline-block" data-scroll data-scroll-repeat data-scroll-speed="3" data-scroll-call="randomizeTextColor">e</span>
-    <span class="inline-block" data-scroll data-scroll-repeat data-scroll-speed="2" data-scroll-call="randomizeTextColor">s</span>
-  </h2>
-  <div class="transform rotate-6 skew-x-12">
-    <div data-scroll data-scroll-direction="horizontal" data-scroll-speed="20" data-scroll-target="#services">
-      <span class="text-3xl sm:text-4xl md:text-6xl 2xl:text-7xl bg-green-400 p-5 whitespace-nowrap">Social Media — Email Marketing — Digital Advertising</span>
-    </div>
-  </div>
-  <div class="transform -rotate-6 -skew-x-12 mt-40">
-    <div data-scroll data-scroll-direction="horizontal" data-scroll-speed="-20" data-scroll-target="#services">
-      <span class="text-3xl sm:text-4xl md:text-6xl 2xl:text-7xl bg-green-400 p-5 whitespace-nowrap">Web Development - Motion Design - Graphic Design</span>
-    </div>
-  </div>
-</section>
-<p class="text-center fs-2 mt-5">New Arrivals</p>
-<section class="flex gap-14 justify-center my-5 cards flex-wrap">
-            <?php foreach ($products as $product) {  ?>
+
+<p class="fs-2 text-center mt-5">Hot Product</p>
+<section class="flex gap-14 justify-center my-5 cards flex-wrap">  
+
+                <?php foreach ($products as $product) {  ?>
                 <!-- loop through the products -->
                 <div class="">
                     <div>
@@ -123,30 +103,14 @@
             </div>
             <div class="col-lg-6 p-0">
                 <div class="discount__text">
-                    <div class="discount__text__title">
+                    <div class="discount__text__title mt-5">
                         <span>Discount</span>
                         <h2>Summer 2022</h2>
                         <h5><span>Sale</span> 50%</h5>
                     </div>
-                    <div class="discount__countdown" id="countdown-time">
-                        <div class="countdown__item">
-                            <span>22</span>
-                            <p>Days</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>18</span>
-                            <p>Hour</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>46</span>
-                            <p>Min</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>05</span>
-                            <p>Sec</p>
-                        </div>
+                    <div class="discount__text__desc">
+                        <p> </p>
                     </div>
-                    <!-- <a href="">Shop now</a> -->
                 </div>
             </div>
         </div>
@@ -162,7 +126,7 @@
                 <div class="services__item">
                     <i class="fa fa-car"></i>
                     <h6>Free Shipping</h6>
-                    <p>For all oder over $99</p>
+                    <p>For all oder</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">

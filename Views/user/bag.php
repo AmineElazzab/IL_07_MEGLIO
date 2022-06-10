@@ -1,6 +1,12 @@
 
 <?php include './Views/includes/navbar.php'; ?>
+<?php {
+    $data = new ProductController();
+    $products = $data->getRandomProducts();
 
+  
+}
+?>
 
 <div class="container ">
     <div class="row justify-content-center">
@@ -78,10 +84,62 @@
                          </form>
 
             <?php endif; ?>
+            <?php if (!isset($_SESSION["logged"])) : { ?>
+                
+                    <?php }
+                    else : { ?>
+            <div class="w-full mx-auto rounded-lg bg-white border border-gray-200 p-3 text-gray-800 font-light mb-6">
+                        <div class="w-full flex mb-3 items-center">
+                            <div class="w-32">
+                                <span class="text-gray-600 font-semibold">Contact</span>
+                            </div>
+                            <div class="flex-grow pl-3">
+                                <span><?php echo $_SESSION["fullname"]; ?></span>
+                            </div>
+                        </div>
+                        <div class="w-full flex items-center">
+                            <div class="w-32">
+                                <span class="text-gray-600 font-semibold">Billing Address</span>
+                            </div>
+                            <div class="flex-grow pl-3">
+                                <span><?php echo $_SESSION["adresse"]; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </div>
+
+    <p class="fs-4 text-center mt-5">Recommended products <i class="fa fa-fire" aria-hidden="true"></i>
+</p>
+    <section class="flex gap-14 justify-center my-5 cards flex-wrap">  
+
+                <?php foreach ($products as $product) {  ?>
+                <!-- loop through the products -->
+                <div class="">
+                    <div>
+                        <img src=<?= "./Views/assets/img/product/".$product['image_prod'] ?> style="width: 200px;">
+                    </div>
+                    
+                    <div class="flex gap-2 justify-center">
+
+                       
+                        <form id="form" method="post" action="<?php echo BASE_URL ?>ProductDetails">
+                            <input type="hidden" name="id_prod" id="id_prod">
+                        </form>
+
+                        <a onclick="submitForm(<?php echo $product['id_prod'];?>)" class=" text-black rounded-full w-2/3 text-center h-10 pt-2 cursor-pointer font-bold font-proza duration-500 ease-in-out hover:scale-95 ">SEE MORE</a>
+
+                    </div>
+                </div>
+
+            <?php } ?>
+
+        </section>
+
 
 
 <script>

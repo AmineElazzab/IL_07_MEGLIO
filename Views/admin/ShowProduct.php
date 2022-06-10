@@ -1,7 +1,8 @@
 <?php
 if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
     $data = new ProductController();
-    $products = $data->getAllProducts();
+    $products = $data->getProductA();
+    
 }else{
     Redirect::to("landing");
 }
@@ -20,10 +21,38 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
     <!--Replace with your tailwind.css once created-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
+    <script src="./Views/assets/js/main1.js"></script>
+   <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+   <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+   <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+   <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
 </head>
+<style>
+    body{
+    
+    background-color:#B3E5FC;
+
+}
+
+
+.card-1{
+
+  border: none;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+.icons i {
+ 
+  margin-left: 20px;
+ 
+}
+</style>
 
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
@@ -38,7 +67,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
                 </a>
             </div>
             <div class="w-1/2 pr-0">
-                <div class="flex relative inline-block float-right">
+                <div class="flex relative float-right">
 
                     <div class="relative text-sm">
                         <button id="userButton" class="flex items-center focus:outline-none mr-3">
@@ -71,7 +100,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
             </div>
 
 
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white z-20" id="nav-content">
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white z-20" id="nav-content">
                 <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
                     <li class="mr-6 my-2 md:my-0">
                         <a href="<?php echo BASE_URL; ?>dashboard" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
@@ -81,6 +110,11 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
                     <li class="mr-6 my-2 md:my-0">
                         <a href="<?php echo BASE_URL; ?>ShowProduct" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
                             <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Products</span>
+                        </a>
+                    </li>
+                    <li class="mr-6 my-2 md:my-0">
+                        <a href="<?php echo BASE_URL; ?>Categorie" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
+                            <i class="fas fa-chart-area fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Category</span>
                         </a>
                     </li>
                     <li class="mr-6 my-2 md:my-0">
@@ -99,7 +133,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
         </div>
     </nav>
 
-    <div class="container" style="margin-top:200px;">
+    <!-- <div class="container" style="margin-top:200px;">
     <div class="row my-5">
         <div class="col-md-10 mx-auto">
         <a href="<?= BASE_URL; ?>addProduct" class="btn btn-warning">addProduct</a>
@@ -136,8 +170,6 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
                         <tr>
                             
                             <td><?= $product['id_prod']; ?></td>
-                            <!-- <td><?= $product['rfer']; ?></td> -->
-                            <!-- <td><img src="<?= $product['image_prod']; ?>" alt=""></td> -->
                             <td><img src=<?= "./Views/assets/img/product/".$product['image_prod'] ?> alt=""></td>
                             <td><?= $product['nom_prod']; ?></td>
                             <td><?= $product['descp_prod']; ?></td>
@@ -148,8 +180,10 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
                             <td><?= $product['size']; ?></td>
 
                             <td class=" flex-row justify-content-center">
-                                <a href="<?= BASE_URL; ?>updateProduct<?= $product['id_prod']; ?>" class="btn btn-warning">Edit</a>
+                                    <a onclick="submitForm(<?php echo $product['id_prod'];?>)" class="btn btn-warning">Edit</a>
+                                </button>
                                 <a href="<?= BASE_URL; ?>delete/<?= $product['id_prod']; ?>" class="btn btn-danger">Delete</a>
+                            </td>
                         </tr>
 
                         <?php endforeach; ?>
@@ -158,7 +192,61 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
             </div>
         </div>
     </div> 
-</div>
+</div> -->
+<div class="container" style="margin-top:200px; margin-bottom:200px;">
+<a href="<?= BASE_URL; ?>addProduct" class="btn btn-warning mb-4">addProduct</a>
+        <form id="form" action="<?php echo BASE_URL?>updateProduct" method="post">
+            <input type="hidden" name="id_prod" id="id_prod">
+        </form>
+        <form id="delete_form" action="<?php echo BASE_URL?>deleteProduct" method="post">
+            <input type="hidden" name="delete_id_prod" id="delete_id_prod">
+        </form>
+
+            <table class="table table-borderless table-responsive card-1 p-4">
+  <thead>
+    <tr class="border-bottom">
+    <th scope="col">id</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <!-- <th scope="col">Description</th> -->
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Size</th>
+                            <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach($products as $product): ?>
+    <tr class="border-bottom">
+                            <td><?= $product['id_prod']; ?></td>
+                            <td><img src=<?= "./Views/assets/img/product/".$product['image_prod'] ?> alt=""></td>
+                            <td><?= $product['nom_prod']; ?></td>
+                            <!-- <td><?= $product['descp_prod']; ?></td> -->
+                            <td><?= $product['prix_prod']; ?></td>
+                            <td><?= $product['quantité']; ?></td>
+                            <td><?= $product['name_categorie']; ?></td>
+                            <td><?= $product['color']; ?></td>
+                            <td><?= $product['size']; ?></td>
+                            <td>
+                                 <div class="p-2 icons">
+                                <a onclick="submitForm(<?php echo $product['id_prod'];?>)" class="fas fa-edit text-success"></a>
+                                <a onclick="deleteForm(<?php echo $product['id_prod'];?>)" class="fa fa-adjust text-danger"></a>
+                                </div>
+                            </td>
+                           
+      
+    </tr>
+
+    <?php endforeach; ?>
+
+
+  </tbody>
+</table>
+    
+         
+     </div>
 
 
     <script>
@@ -214,3 +302,4 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
         return false;
     }
     </script>
+    
