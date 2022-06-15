@@ -19,10 +19,10 @@
 <link rel="stylesheet" href="./Views/assets/css/style1.css" type="text/css">
 <link rel="stylesheet" href="./Views/assets/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="./Views/assets/css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="./Views/assets/css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="./Views/assets/css/jquery-ui.min.css" type="text/css">
-<link rel="stylesheet" href="./Views/assets/css/magnific-popup.css" type="text/css">
-<link rel="stylesheet" href="./Views/assets/css/owl.carousel.min.css" type="text/css">
+<!-- <link rel="stylesheet" href="./Views/assets/css/elegant-icons.css" type="text/css"> -->
+<!-- <link rel="stylesheet" href="./Views/assets/css/jquery-ui.min.css" type="text/css"> -->
+<!-- <link rel="stylesheet" href="./Views/assets/css/magnific-popup.css" type="text/css"> -->
+<!-- <link rel="stylesheet" href="./Views/assets/css/owl.carousel.min.css" type="text/css"> -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://www.paypal.com/sdk/js?client-id=AQZ_yAB-QQN0_h0Sf5qSvNkkwMRvJc-uirUDrRmz6kUJJYEdacjvjIPOJvsPs-mKjc8OnG_2F5MgFsPr"></script>
 <title>il-meglio.</title>
