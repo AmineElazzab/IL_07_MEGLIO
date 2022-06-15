@@ -11,7 +11,7 @@ class  Categorie{
     }
 
 
-    public static function getProByCategorie($data)
+    static public function getProByCategorie($data)
     {
         $stmt= DB::connect()->prepare('SELECT * FROM product p INNER JOIN categorie c on p.product_categorie_id=c.id_categorie and c.name_categorie=:categorie');
         $stmt->bindParam(':categorie',$data['categorie']);
@@ -19,7 +19,7 @@ class  Categorie{
         return $stmt->fetchAll();
     }
 
-    public function getProduct($data) 
+    static public function getProduct($data) 
     {
 
         $stmt= DB::connect()->prepare('SELECT * FROM product WHERE id_prod=:id');

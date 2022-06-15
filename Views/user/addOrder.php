@@ -8,7 +8,7 @@ $order = new OrdersController();
 			"order_quantity" => $product['quantity'],
 			"prix" => $product['price'],
 			"total" => $product['total'],
-			"order_status" => "Payment Confirmed",
+			"order_status" => "Waiting for Shipping",
 		);
 		$order->addOrder($data);
 	}else{

@@ -2,17 +2,15 @@
 <?php include './Views/includes/navbar.php'; ?>
 <?php {
     $data = new ProductController();
-    $products = $data->getRandomProducts();
-
-  
+    $products = $data->getRandomProducts();  
 }
 ?>
 
 <div class="container ">
     <div class="row justify-content-center">
-        <div class="col-md-8 bg-white mt-5 ">
+        <div class="table-responsive mt-5">
             <table class="table table-striped">
-                <thead>
+                <thead class="table-dark">
                     <tr>
 
                         <th>image</th>
@@ -25,10 +23,10 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     <?php foreach ($_SESSION as $name => $product) : ?>
                         <?php if (substr($name, 0,9)=="products_") : ?>
-                            <tr>
+                            <tr >
                                 <td> <img src=<?= "./Views/assets/img/product/".$product["image"] ?> alt=""></td>
                                 <td><?php echo $product["name"]; ?></td>
                                 <td><?php echo $product["price"]; ?></td>
@@ -56,8 +54,8 @@
                 <?php endif;?>
            
 
-            <div class="col-4 col-md-4 float-right ">
-                    <table class="table table-bordered mt-3">
+            <div class=" table-responsive">
+                    <table class="table table-bordered mt-3 ">
                     <tbody>
                    <tr>
                        <th scope="row">Produits</th>

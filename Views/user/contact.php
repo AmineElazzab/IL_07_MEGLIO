@@ -44,10 +44,13 @@
 								<div class="contact-wrap w-100 p-md-5 p-4">
 									<h3 class="mb-4">Get in touch</h3>
 									<div id="form-message-warning" class="mb-4"></div> 
-				      		<div id="form-message-success" class="mb-4">
+				      		<!-- <div id="form-message-success" class="mb-4"> -->
 				            
 				      		</div>
-									<form method="POST" action="https://formsubmit.co/ma.elazzab@gmail.com">
+									<form method="POST" action="https://api.web3forms.com/submit" id="form">
+										<input type="hidden" name="apikey" value="3b68437e-596a-4bc8-a5c4-ed1aba0b9ea4">
+                            			<input type="hidden" name="subject" value="Message from an 07 IL-MEGLIO customer">
+                            			<input type="checkbox" name="botcheck" id="" style="display: none;">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
@@ -71,8 +74,8 @@
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
-													<input type="submit" value="Send Message" class="btn btn-light text-dark">
-													<div class="submitting"></div>
+													<button type="submit" class="btn btn-light text-dark">Send Message</button>
+													<p class="text-base text-center" id="result"></p>
 												</div>
 											</div>
 										</div>
@@ -83,18 +86,56 @@
 					</div>
 				</div>
 			</div>
+		
 		</div>
 	</section>
 
-<!-- Search Begin -->
-<div class="search-model">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
-        </form>
-    </div>
-</div>
-<!-- Search End -->
+	<script>
+    const form = document.getElementById('form');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function(e) {
+        const formData = new FormData(form);
+        e.preventDefault();
+        var object = {};
+        formData.forEach((value, key) => {
+            object[key] = value
+        });
+        var json = JSON.stringify(object);
+        result.innerHTML = "Please wait..."
+
+        fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = json.message;
+                    result.classList.remove('text-gray-500');
+                    result.classList.add('text-green-500');
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                    result.classList.remove('text-gray-500');
+                    result.classList.add('text-red-500');
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => {
+                    result.style.display = "none";
+                }, 5000);
+            });
+    })
+</script>
 
 <?php include './Views/includes/footer.php'; ?>

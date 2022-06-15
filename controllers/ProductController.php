@@ -1,10 +1,10 @@
 <?php
 
 class ProductController{
-    public function getAllProducts(){
+    public function getAllProducts(){       
         $products = Product::getAll();
         return $products;
-        
+      
     }
     public function getProductA(){
         $products = Product::getProductA();
@@ -57,7 +57,7 @@ class ProductController{
             'order_status' => $status
         );
         Product::updateOrderStatus($data);
-        Redirect::to("dashboard");
+        Redirect::to("orders");
     }
 
     public function newProduct(){
@@ -108,9 +108,9 @@ class ProductController{
                 // "prId" => $_POST["prId"],
             );
             $result = Product::editProduct($data);
-            if($result === "ok"){
+            if($result == "ok"){
                 Session::set("success","Produit modifié");
-                Redirect::to("products");
+                Redirect::to("ShowProduct");
             }else{
                 echo $result;
             }
@@ -144,4 +144,10 @@ class ProductController{
             }
         }
     }
+    public function getQuantity()
+    {
+        $stock = Product::displayQuantity();
+        return $stock;
+    }
+   
 }

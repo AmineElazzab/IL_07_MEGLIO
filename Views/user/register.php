@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
   if(isset($_SESSION["logged"]) && $_SESSION["logged"] == true) {  // if the user is logged in 
         Redirect::to("landing");
     }
@@ -30,11 +30,11 @@
     <form class="mt-2" method="POST">
         <div>
           <label class="block text-gray-700">Fullname</label>
-          <input type="text" name="fullname" id="fullname" placeholder="Enter Fisrt Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
+          <input type="text" name="fullname" id="fullname" placeholder="Enter Fullname" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
         </div>
         <div>
           <label class="block text-gray-700">Username</label>
-          <input type="text" name="username" id="username" placeholder="Enter Fisrt Name" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
+          <input type="text" name="username" id="username" placeholder="Enter Username" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"  required>
         </div>
         <div class="mt-2">
           <label class="block text-gray-700">Phone</label>

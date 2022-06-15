@@ -14,42 +14,42 @@
             <div class="col-lg-2 col-ld-4 col-sm-4 px-0 ">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/categories/Hoods.jpg">
                     <div class="instagram__text">
-                        <a href="hoods">Hoods</a>
+                        <a>Hoods</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/categories/Sweats.JPG">
                     <div class="instagram__text">
-                        <a href="sweats">Sweats</a>
+                        <a>Sweats</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/categories/T-shirt.jpg">
                     <div class="instagram__text">
-                        <a href="t-shirts">T-shirts</a>
+                        <a>T-shirts</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/categories/Accessoires.JPG">
                     <div class="instagram__text">
-                        <a href="accessoires">Accessories</a>
+                        <a>Accessories</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/categories/Caps.JPG">
                     <div class="instagram__text">
-                        <a href="caps">Caps</a>
+                        <a>Caps</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/categories/Socks.JPG">
                     <div class="instagram__text">
-                        <a href="socks">Shoes</a>
+                        <a>Shoes</a>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/instagram/insta-1.png">
                     <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
+                        <i href="https://www.instagram.com/meds_boutiquee/" class="fa fa-instagram"></i>
                         <a href="https://www.instagram.com/meds_boutiquee/" target="_blank">@ meds_boutiquee</a> 
 
                     </div>
@@ -171,7 +171,7 @@
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/instagram/insta-2.png">
                     <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
+                        <i href="https://www.instagram.com/meds_boutiquee/" class="fa fa-instagram"></i>
                         <a href="https://www.instagram.com/meds_boutiquee/" target="_blank">@ meds_boutiquee</a> 
                     </div>
                 </div>
@@ -179,7 +179,7 @@
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/instagram/insta-3.png">
                     <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
+                        <i href="https://www.instagram.com/meds_boutiquee/" class="fa fa-instagram"></i>
                         <a href="https://www.instagram.com/meds_boutiquee/" target="_blank">@ meds_boutiquee</a> 
                     </div>
                 </div>
@@ -187,7 +187,7 @@
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/instagram/insta-4.png">
                     <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
+                        <i href="https://www.instagram.com/meds_boutiquee/" class="fa fa-instagram"></i>
                         <a href="https://www.instagram.com/meds_boutiquee/" target="_blank">@ meds_boutiquee</a> 
                     </div>
                 </div>
@@ -195,7 +195,7 @@
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/instagram/insta-5.png">
                     <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
+                        <i href="https://www.instagram.com/meds_boutiquee/" class="fa fa-instagram"></i>
                         <a href="https://www.instagram.com/meds_boutiquee/" target="_blank">@ meds_boutiquee</a> 
                     </div>
                 </div>
@@ -203,7 +203,7 @@
             <div class="col-lg-2 col-md-4 col-sm-4 p-0">
                 <div class="instagram__item set-bg" data-setbg="./Views/assets/img/instagram/insta-6.png">
                     <div class="instagram__text">
-                        <i class="fa fa-instagram"></i>
+                        <i href="https://www.instagram.com/meds_boutiquee/" class="fa fa-instagram"></i>
                         <a href="https://www.instagram.com/meds_boutiquee/" target="_blank">@ meds_boutiquee</a> 
                     </div>
                 </div>

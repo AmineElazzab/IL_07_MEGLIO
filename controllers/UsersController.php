@@ -4,9 +4,9 @@ class UsersController{
     public function auth()
     {
         if (isset($_POST["submit"])) {
-            $data["username"] = $_POST["username"];
+            $data["email"] = $_POST["email"];
             $result = User::login($data);
-            if ($result->username == $_POST["username"] && password_verify($_POST["passwords"], $result->passwords)) {
+            if ($result->email == $_POST["email"] && password_verify($_POST["passwords"], $result->passwords)) {
                 $_SESSION["logged"] = true;
                 $_SESSION["username"] = $result->username;
                 $_SESSION["fullname"] = $result->fullname;
@@ -25,6 +25,23 @@ class UsersController{
                 Session::set("error", "Wrong username or password!");
                 Redirect::to("login");
             }
+        }
+    }
+    public function getAllWishlist()
+    {
+        $result = Wishlist::getAll();
+        return $result;
+    }
+
+    public function unlike($pid)
+    {
+        $result = Wishlist::remove($pid);
+        if ($result == "ok") {
+            Session::set("error", "Product removed from your wishlist");
+            Redirect::to("wishlist");
+        } else {
+            Session::set("error", "Product is not in your wishlist");
+            Redirect::to("wishlist");
         }
     }
 
@@ -61,13 +78,17 @@ class UsersController{
             "fullname" => $_POST["fullname"],
             "username" => $_POST["username"],
             "telephone" => $_POST["telephone"],
-            "email" => $_SESSION["email"],
-            "adresse" => $_SESSION["adresse"],
+            "email" => $_POST["email"],
+            "adresse" => $_POST["adresse"],
             "id_client" => $_SESSION["id_client"],
         );
+        // var_dump($data);
+        // die();
         $result = User::update($data);
         if ($result === "ok") {
             Session::set("success", "user updated");
+            // header('location:profil');
+            // header('location:landing');
             Redirect::to("profil");
         } else {
             echo $result;
@@ -83,6 +104,25 @@ class UsersController{
             return $user;
         }
     }
+    public function addToWhishlist()
+    {
+        if (isset($_POST["submit"])) {
+            $data = array(
+                "id_client" => $_SESSION["id_client"],
+                "id_prod" => $_POST["id_prod"]
+            );
+            $result = Wishlist::add($data);
+            if ($result == "ok") {
+                
+                Session::set("success", "product added to wishlist!");
+                // Redirect::to("wishlist");
+                header('location:wishlist');
+            } else {
+                Session::set("error", "Product already in wishlist!");
+                Redirect::to("wishlist");
+            }
+        }
+    }
     public function logout (){
         
    session_destroy();
@@ -90,6 +130,7 @@ class UsersController{
         Redirect::to("login");
     }
 }
+
 ?>
     
     

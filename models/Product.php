@@ -152,4 +152,13 @@
             $stmt = null;
        
     }
+    static public function displayQuantity(){
+        $stmt = DB::connect()->prepare('SELECT SUM(quantité) as stock FROM product');
+        $stmt->execute();
+        $total = $stmt->fetch(PDO::FETCH_OBJ);
+        return $total;
+        $stmt = null;
+    }
+
+    
  }

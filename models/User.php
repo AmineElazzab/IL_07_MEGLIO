@@ -2,11 +2,11 @@
 
 class User{
     static public function login($data) {
-        $username = $data['username'];
+        $email = $data['email'];
         try {
-            $query = "SELECT * FROM users WHERE username=:username";
+            $query = "SELECT * FROM users WHERE email=:email";
             $stmt = DB::connect()->prepare($query);
-            $stmt->execute((array(":username" => $username)));
+            $stmt->execute((array(":email" => $email)));
             $user = $stmt->fetch(PDO::FETCH_OBJ);
             return $user;
         } catch (PDOException $ex) {

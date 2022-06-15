@@ -1,9 +1,4 @@
-    <!-- Page Preloder -->
-    <!-- <div id="preloder">
-        <div class="loader"></div>
-    </div> -->
 
-    <!-- Offcanvas Menu Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__close">+</div>
@@ -25,7 +20,7 @@
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <span class="dropdown-item"><?php echo $_SESSION["fullname"]; ?></span>
-    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>/profil" class="justify-between hover:text-red-800">My Profile </a></li>
+    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>profil" class="justify-between hover:text-red-800">My Profile </a></li>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>MyOrder">My Orders</a></li>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Log out</a></li>
   </ul>
@@ -161,6 +156,7 @@
       <span class="dropdown-item"><?php echo $_SESSION["fullname"]; ?></span>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>/profil" class="justify-between hover:text-red-800">My Profile </a></li>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>MyOrder">My Orders</a></li>
+    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>wishlist">Wishlist</a></li>
     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>logout">Log out</a></li>
   </ul>
 </div>
@@ -176,6 +172,7 @@
                             </i>
                             </a></li>
                         </ul>
+                        
                     </div>
                 </div>
             </div>

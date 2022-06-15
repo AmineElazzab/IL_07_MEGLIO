@@ -18,16 +18,16 @@ class Order{
         $stmt->bindParam(':total', $data['total']);
         $stmt->bindParam(':order_status', $data['order_status']);
         $stmt->bindParam(':id_client', $_SESSION['id_client']);
-        if($stmt->execute()){
-            return 'ok';
-        }else{
-            return 'error';
-        }
-        // $stmt->close();
-        $stmt = null;
+        $stmt->execute();
+        $stmt = DB::connect()->prepare('UPDATE product SET quantité = quantité - :quantity  WHERE id_prod = :id_prod');
+        $stmt->bindParam(':id_prod', $data['id_prod']);
+        $stmt->bindParam(':quantité', $data['quantity']);
+        $stmt->execute();
+        return 'ok';
+
     }
     public static function countWaitingOrders() {
-        $stmt = DB::connect()->prepare('SELECT COUNT(*) AS total FROM product_order WHERE order_status = "Waiting for validation"');
+        $stmt = DB::connect()->prepare('SELECT COUNT(*) AS total FROM product_order WHERE order_status = "Waiting for Shipping"');
         $stmt->execute();
         $total = $stmt->fetch(PDO::FETCH_OBJ);
         return $total;

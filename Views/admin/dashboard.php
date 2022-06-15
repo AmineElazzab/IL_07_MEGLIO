@@ -1,9 +1,15 @@
 <?php
+
 $total = new ProductController();
+$products = $total->getAllProducts();
 $total_price = $total->getTotal();
 $total_quantity = $total->getTotalQuantitySold();
+$users = new UsersController();
+$users_list = $users->displayUsers();
 $total = new OrdersController();
 $pending_order = $total->getWaitingOrders();
+$stock = new ProductController();
+$stock = $stock->getQuantity();
 
 
 
@@ -30,82 +36,82 @@ $pending_order = $total->getWaitingOrders();
 
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
-    <nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
+<nav id="header" class="bg-white fixed w-full z-10 top-0 shadow">
 
 
-        <div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
+<div class="w-full container mx-auto flex flex-wrap items-center mt-0 pt-3 pb-3 md:pb-0">
 
-            <div class="w-1/2 pl-2 md:pl-0">
-                <a class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold" href="#">
-                     Admin Dashboard
-                </a>
-            </div>
-            <div class="w-1/2 pr-0">
-                <div class="flex relative inline-block float-right">
+    <div class="w-1/2 pl-2 md:pl-0">
+        <a class="text-gray-900 text-base xl:text-xl no-underline hover:no-underline font-bold" href="#">
+            <i class="fas fa-sun text-pink-600 pr-3"></i> Admin Dashboard
+        </a>
+    </div>
+    <div class="w-1/2 pr-0">
+        <div class="flex relative float-right">
 
-                    <div class="relative text-sm">
-                        <button id="userButton" class="flex items-center focus:outline-none mr-3">
-                            <img class="w-8 h-8 rounded-full mr-4" src="https://github.com/AmineElazzab.png"> <span class="hidden md:inline-block">Hi</span>
-                            <svg class="pl-2 h-2" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
-                                <g>
-                                    <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" />
-                                </g>
-                            </svg>
-                        </button>
-                        <div id="userMenu" class="bg-white rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 invisible">
-                            <ul class="list-reset">
-                                <li><a href="#" class="px-4 py-2 block text-gray-900 hover:bg-gray-400 no-underline hover:no-underline"><?php echo $_SESSION["fullname"]; ?></a></li>
-                                <li><a href="<?php echo BASE_URL; ?>logout" class="px-4 py-2 block text-gray-900 hover:bg-gray-400 no-underline hover:no-underline">Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <div class="block lg:hidden pr-4">
-                        <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none">
-                            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <title>Menu</title>
-                                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                            </svg>
-                        </button>
-                    </div>
+            <div class="relative text-sm">
+                <button id="userButton" class="flex items-center focus:outline-none mr-3">
+                    <img class="w-8 h-8 rounded-full mr-4" src="https://github.com/AmineElazzab.png"> <span class="hidden md:inline-block">Hi</span>
+                    <svg class="pl-2 h-2" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+                        <g>
+                            <path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" />
+                        </g>
+                    </svg>
+                </button>
+                <div id="userMenu" class="bg-white rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 invisible">
+                    <ul class="list-reset">
+                        <li><a class="px-4 py-2 block text-gray-900 hover:bg-gray-400 no-underline hover:no-underline"><?php echo $_SESSION["fullname"]; ?></a></li>
+                        <li><a href="<?php echo BASE_URL; ?>logout" class="px-4 py-2 block text-gray-900 hover:bg-gray-400 no-underline hover:no-underline">Logout</a></li>
+                    </ul>
                 </div>
-
             </div>
 
 
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white z-20" id="nav-content">
-                <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="<?php echo BASE_URL; ?>dashboard" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
-                            <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="<?php echo BASE_URL; ?>ShowProduct" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
-                            <i class="fas fa-tasks fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Products</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="<?php echo BASE_URL; ?>Categorie" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
-                            <i class="fas fa-chart-area fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Category</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="<?php echo BASE_URL; ?>orders" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
-                            <i class="fa fa-envelope fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Orders</span>
-                        </a>
-                    </li>
-                    <li class="mr-6 my-2 md:my-0">
-                        <a href="<?php echo BASE_URL; ?>Clients" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
-                            <i class="fas fa-chart-area fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Clients</span>
-                        </a>
-                    </li>
-                </ul>
+            <div class="block lg:hidden pr-4">
+                <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-teal-500 appearance-none focus:outline-none">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
             </div>
-
         </div>
-    </nav>
+
+    </div>
+
+
+    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white z-20" id="nav-content">
+        <ul class="list-reset lg:flex flex-1 items-center px-4 md:px-0">
+            <li class="mr-6 my-2 md:my-0">
+                <a href="<?php echo BASE_URL; ?>dashboard" class="block py-1 md:py-3 pl-1 align-middle text-red-500 no-underline hover:text-gray-900 border-b-2 ">
+                    <i class="fas fa-home fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Home</span>
+                </a>
+            </li>
+            <li class="mr-6 my-2 md:my-0">
+                <a href="<?php echo BASE_URL; ?>ShowProduct" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
+                <i class="fas fa-tshirt fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Products</span>
+                </a>
+            </li>
+            <li class="mr-6 my-2 md:my-0">
+                <a href="<?php echo BASE_URL; ?>Categorie" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
+                    <i class="fas fa-chart-area fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Category</span>
+                </a>
+            </li>
+            <li class="mr-6 my-2 md:my-0">
+                <a href="<?php echo BASE_URL; ?>orders" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
+                <i class="fas fa-shipping-fast fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Orders</span>
+                </a>
+            </li>
+            <li class="mr-6 my-2 md:my-0">
+                <a href="<?php echo BASE_URL; ?>Clients" class="block py-1 md:py-3 pl-1 align-middle text-gray-500 no-underline hover:text-gray-900 border-b-2 ">
+                <i class="fas fa-users fa-fw mr-3"></i><span class="pb-1 md:pb-0 text-sm">Clients</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+</nav>
 
     <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200" style="margin-top: 200px;">
                     <div class="container mx-auto px-6 py-8">
@@ -154,20 +160,99 @@ $pending_order = $total->getWaitingOrders();
 
                                         <div class="mx-5">
                                             <h4 class="text-2xl font-semibold text-gray-700"><?php echo $pending_order->total ?></h4>
-                                            <div class="text-gray-500">Pending Orders</div>
+                                            <div class="text-gray-500">Waiting for Shipping</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full mt-6 px-6 sm:w-1/2 xl:w-1/3 xl:mt-2">
+                                    <div class="flex items-center px-5 py-6 shadow-sm rounded-md bg-white">
+                                        <div class="p-3 rounded-full bg-pink-600 bg-opacity-75">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="white" class="bi bi-hourglass-split" viewBox="0 0 16 16">
+                                                <path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
+                                            </svg>
+                                        </div>
+
+                                        <div class="mx-5">
+                                            <h4 class="text-2xl font-semibold text-[#080808]"><?php echo $stock->stock ?></h4>
+                                            <div class="text-[#080808]">Stock</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-8">
-
-                        </div>
+                      
 
                         
                     </div>
                 </main>
+                <div class="container" style="margin-top:200px;">
+    <div class="row my-5">
+        <div class="col-md-10 mx-auto">
+            <div class="card bg-light p-3">
+            <table class="min-w-full">
+
+<thead>
+    <tr>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Fullname</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Username</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Telephone</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Email</th>
+        <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+            Adresse</th>    
+            
+        
+    </tr>
+</thead>
+<?php
+foreach ($users_list as $users) :
+?>
+
+    <tbody class="bg-white">
+        <tr>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="flex items-center">
+                    
+
+                    <div class="ml-4">
+                        <div class="text-sm leading-5 font-medium text-gray-900"><?php echo $users["fullname"] ?>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="text-sm leading-5 text-gray-900"><?php echo $users["username"] ?></div>
+                <!-- <div class="text-sm leading-5 text-gray-500">Web dev</div> -->
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"><?php echo $users["telephone"] ?></span>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                <?php echo $users["email"] ?></td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"><?php echo $users["adresse"] ?></span>
+            </td>
+
+            
+        </tr>
+    </tbody>
+<?php endforeach; ?>
+
+</table>
+
+            </div>
+        </div>
+    </div> 
+</div>
 
            
 

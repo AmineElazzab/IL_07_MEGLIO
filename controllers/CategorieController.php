@@ -42,9 +42,9 @@ class CategorieController{
         }
     }
     public function deleteCategory(){
-        if(isset($_POST["delete_id_categorie"])){
+        if(isset($_POST["delete_cat_id"])){
             $data = array(
-                "id_categorie" => $_POST["delete_id_categorie"]
+                "id_categorie" => $_POST["delete_cat_id"]
             );
             $result = Categorie::deleteCategory($data);
             if($result === "ok"){

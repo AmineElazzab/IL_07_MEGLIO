@@ -54,9 +54,9 @@ error_reporting(0);
             <tr scope="row">
                                 <td><?php echo $product_order->product; ?></td>
                                 <td><?php echo $product_order->order_quantity; ?></td>
-                                <td><?php echo $product_order->prix; ?></td>
-                                <td><?php echo $product_order->total; ?></td>
-                                <td><?php echo $product_order->date_order; ?> MAD</td>
+                                <td><?php echo $product_order->prix; ?> MAD</td>
+                                <td><?php echo $product_order->total; ?> MAD</td>
+                                <td><?php echo $product_order->date_order; ?></td>
                                 <td><?php echo $product_order->order_status; ?></td>     
             </tr>
                                     <?php endforeach;

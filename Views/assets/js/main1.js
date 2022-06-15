@@ -12,9 +12,9 @@ function deleteForm($id) {
     form.submit();
 }
 
-function deleteCat($id) {
-    const input = document.querySelector("#delete_id_categorie");
-    const form = document.querySelector("#formCat");
+function deleteFormCat($id) {
+    const input = document.querySelector("#delete_cat_id");
+    const form = document.querySelector("#delete_form_cat");
     input.value = $id;
     form.submit();
 }
