@@ -2,7 +2,7 @@
 
 class  Categorie{
 
-    static public function getAll(){
+    static public function getAll(){        // returns all categories from database in an array of objects  (categories)    
         $stmt = DB::connect()->prepare('SELECT * FROM categorie');
         $stmt->execute();
         return $stmt->fetchAll();
@@ -11,7 +11,7 @@ class  Categorie{
     }
 
 
-    static public function getProByCategorie($data)
+    static public function getProByCategorie($data)     
     {
         $stmt= DB::connect()->prepare('SELECT * FROM product p INNER JOIN categorie c on p.product_categorie_id=c.id_categorie and c.name_categorie=:categorie');
         $stmt->bindParam(':categorie',$data['categorie']);

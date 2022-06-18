@@ -6,7 +6,7 @@ class ProductController{
         return $products;
       
     }
-    public function getProductA(){
+    public function getProductA(){  //get all products by categorie id  passed in   
         $products = Product::getProductA();
         return $products;
     }
@@ -15,7 +15,7 @@ class ProductController{
         $products = Product::getRandom(6);
         return $products;
     }
-    public function getProductByCategorie(){
+    public function getProductByCategorie(){ //get all products by categorie id  passed in as parameter from the constructor    
         if(isset($id)){
             $data = array(
                 'id' => $id
@@ -62,16 +62,7 @@ class ProductController{
 
     public function newProduct(){
         if(isset($_POST["submit"])){
-            // $data = array(
-            //     "nom_prod" => $_POST["nom_prod"],
-            //     "descp_prod" => $_POST["descp_prod"],
-            //     "prix_prod" => $_POST["prix_prod"],
-            //     "image_prod" => $_POST["image"],
-            //     "quantité" => $_POST["quantité"],
-            //     "color" => $_POST["color"],
-            //     "size" => $_POST["size"],
-            //     "prId" => $_POST["prId"]
-            // );
+           
             $data = array(
                 // "rfer"=> $_POST["rfer"],
                 "nom_prod" => $_POST["nom_prod"],

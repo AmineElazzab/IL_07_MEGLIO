@@ -8,17 +8,17 @@ class CategorieController{
     }
 
 
-    public function getProByCategorie(){
+    public function getProByCategorie(){  // returns all products by categorie  id  passed in url   ?id=1   ?id=2   ?id=3       etc...  ?id=1&id=2&id=3 etc...
         if(isset($_POST['try']))
         {
-            $data=array('categorie'=>$_POST['categorie']);
-            $ctr=Categorie::getProByCategorie($data);
+            $data=array('categorie'=>$_POST['categorie']);  // $_POST['categorie'] is the id of the categorie
+            $ctr=Categorie::getProByCategorie($data);   // returns all products by categorie  id  passed in url   ?id=1   ?id=2   ?id=3       etc...  ?id=1&id=2&id=3 etc...
             // var_dump($ctr);
             // die();
             return $ctr;
         }
     }
-    public function getProduct()
+    public function getProduct()    
     {
         if(isset($_POST['pst']))
         {

@@ -65,13 +65,14 @@
     
 </section>
 <!-- Banner Section End -->
-
-<p class="fs-2 text-center mt-5">Hot Product</p>
+<div>
+<p class="fs-2 text-center text-dark mt-5">Hot Product<i class="fa fa-star-shooting"></i></p>
+</div>
 <section class="flex gap-14 justify-center my-5 cards flex-wrap">  
 
                 <?php foreach ($products as $product) {  ?>
                 <!-- loop through the products -->
-                <div class="">
+                <div class=" ">
                     <div>
                         <img src=<?= "./Views/assets/img/product/".$product['image_prod'] ?> style="width: 200px;">
                     </div>

@@ -26,7 +26,8 @@ error_reporting(0);
     
 <div class="container" style="margin-top:100px; margin-bottom:150px;">
             <div class="text-center mt-5">
-                <h1 class="text-2xl font-bold">My Orders</h1>
+            <i class="fa fa-shipping-fast"></i>
+                <h1 class="text-2xl font-bold mt-2">My Orders</h1>
             </div>
             <?php if (!isset($_SESSION["logged"])) : { ?>
                 <h2 class="pt-5 text-center" style="margin-top:200px;">You Don't Have Any Orders Yet ? Log In For Shipping</h2></br>
@@ -35,7 +36,8 @@ error_reporting(0);
                 else : { ?>
 
       <div class="table-responsive custom-table-responsive">
-
+      <?php if (count($orders) > 0) :?>
+            <?php foreach ($orders as $product_order) :?>
         <table class="table custom-table">
           <thead>
             <tr>  
@@ -49,8 +51,7 @@ error_reporting(0);
             </tr>
           </thead>
           <tbody>
-          <?php if (count($orders) > 0) :?>
-            <?php foreach ($orders as $product_order) :?>
+          
             <tr scope="row">
                                 <td><?php echo $product_order->product; ?></td>
                                 <td><?php echo $product_order->order_quantity; ?></td>
@@ -68,8 +69,11 @@ error_reporting(0);
 
 <?php } ?>
                 <?php endif; ?>
+                <?php if (empty($product_order)) : ?>
+                <p class="text-center w-auto p-3 fs-4 text-dark"> You Don't Have Any Orders Yet!! <i class="fa fa-frown-open"></i></p>    
+            <?php endif; ?>
     </div>
-
   </div>
+ 
 
 <?php include './Views/includes/footer.php'; ?>

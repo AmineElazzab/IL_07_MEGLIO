@@ -131,7 +131,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
 
 
 <div class="container" style="margin-top:200px; margin-bottom:200px;">
-<a href="<?= BASE_URL; ?>addProduct" class="btn btn-warning mb-4">addProduct</a>
+<a href="<?= BASE_URL; ?>addProduct" class="btn btn-warning mb-4">Add Product <i class="fa fa-plus-circle"></i></a>
         <form id="form" action="<?php echo BASE_URL?>updateProduct" method="post">
             <input type="hidden" name="id_prod" id="id_prod">
         </form>
@@ -168,8 +168,12 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
                             <td><?= $product['size']; ?></td>
                             <td>
                                  <div class="p-2 icons">
-                                <a onclick="submitForm(<?php echo $product['id_prod'];?>)" class="fas fa-edit text-success"></a>
-                                <a onclick="deleteForm(<?php echo $product['id_prod'];?>)" class="fa fa-adjust text-danger"></a>
+                                <form action="updateProduct" method="post">
+                                    <!-- <a onclick="submitForm(<?php echo $product['id_prod'];?>)" class="fas fa-edit text-success"></a> -->
+                                    <input type="hidden" name="id_prod" value="<?= $product['id_prod'];?>">
+                                    <a onclick="submitForm(<?php echo $product['id_prod'];?>)" class="fas fa-edit text-success"></a>
+                                </form>
+                                <a onclick="deleteForm(<?php echo $product['id_prod'];?>)" class="fa fa-trash-alt text-danger"></a>
                                 </div>
                             </td>
                            

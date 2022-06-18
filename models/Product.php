@@ -120,10 +120,8 @@
                 image_prod=:image_prod,
                 quantité=:qte,
                 color=:color,
-                size=:size,
-                -- product_category_id=:prId
-                WHERE id_prod=:id_prod
-        ');
+                size=:size
+                WHERE id_prod=:id_prod');
         $stmt->bindParam(':id_prod',$data['id_prod']);
         $stmt->bindParam(':nom_prod',$data['nom_prod']);
         $stmt->bindParam(':descp_prod',$data['descp_prod']);
@@ -132,7 +130,6 @@
         $stmt->bindParam(':qte',$data['qauantité']);
         $stmt->bindParam(':color',$data['color']);
         $stmt->bindParam(':size',$data['size']);
-        // $stmt->bindParam(':prId',$data['prId']);
         if($stmt->execute()){
             return 'ok';
         }else{

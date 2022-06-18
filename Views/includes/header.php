@@ -25,15 +25,15 @@
 <!-- <link rel="stylesheet" href="./Views/assets/css/owl.carousel.min.css" type="text/css"> -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://www.paypal.com/sdk/js?client-id=AQZ_yAB-QQN0_h0Sf5qSvNkkwMRvJc-uirUDrRmz6kUJJYEdacjvjIPOJvsPs-mKjc8OnG_2F5MgFsPr"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <title>il-meglio.</title>
 </head>
 <body>
 <div class="row m-0">
-        <div class="col-md-12">
+        <!-- <div class="col-md-12">
             <?php
-            // include('/Views/includes/alerts.php');
             include ('./Views/includes/alerts.php');
             ?>
-        </div>
+        </div> -->
     </div>
 

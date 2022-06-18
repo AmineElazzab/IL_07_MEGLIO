@@ -7,7 +7,7 @@
                     <div class="footer__logo">
                     <a href="<?php echo BASE_URL ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
                     </div>
-                    <p>Every Product has a Story</p>
+                    <h3>Every Product has a Story</h3>
                   
                 </div>
             </div>
@@ -27,19 +27,19 @@
                     <h6>Account</h6>
                     <ul>
                         <li><a href="profil">My Account</a></li>
+                        <li><a href="MyOrder">My Orders</a></li>
                         <li><a href="return">Return</a></li>
                         <li><a href="shipping">Shipping</a></li>
-                        <!-- <li><a href="heart">Wishlist</a></li> -->
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-8 col-sm-8">
                 <div class="footer__newslatter">
-                    <h6>NEWSLETTER</h6>
+                    <!-- <h6>NEWSLETTER</h6>
                     <form>
                         <input type="text" placeholder="">
                         <button type="submit" class="site-btn"><a href="mailto:ma.elazzab@gmail.com" target="_blank">Send Email</a></button>
-                    </form>
+                    </form> -->
                     <div class="footer__social">
                         <a href="https://www.facebook.com/Boutiiqua/" target="_blank"><i class="fa fa-facebook"></i></a>
                         <a href="https://www.instagram.com/meds_boutiquee/" target="_blank"><i class="fa fa-instagram"></i></a>

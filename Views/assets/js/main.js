@@ -12,14 +12,14 @@
         /*------------------
             Product filter
         --------------------*/
-        $('.filter__controls li').on('click', function() {
-            $('.filter__controls li').removeClass('active');
-            $(this).addClass('active');
-        });
-        if ($('.property__gallery').length > 0) {
-            var containerEl = document.querySelector('.property__gallery');
-            var mixer = mixitup(containerEl);
-        }
+        // $('.filter__controls li').on('click', function() {
+        //     $('.filter__controls li').removeClass('active');
+        //     $(this).addClass('active');
+        // });
+        // if ($('.property__gallery').length > 0) {
+        //     var containerEl = document.querySelector('.property__gallery');
+        //     var mixer = mixitup(containerEl);
+        // }
     });
 
     /*------------------
@@ -31,15 +31,15 @@
     });
 
     //Search Switch
-    $('.search-switch').on('click', function() {
-        $('.search-model').fadeIn(400);
-    });
+    // $('.search-switch').on('click', function() {
+    //     $('.search-model').fadeIn(400);
+    // });
 
-    $('.search-close-switch').on('click', function() {
-        $('.search-model').fadeOut(400, function() {
-            $('#search-input').val('');
-        });
-    });
+    // $('.search-close-switch').on('click', function() {
+    //     $('.search-model').fadeOut(400, function() {
+    //         $('#search-input').val('');
+    //     });
+    // });
 
     //Canvas Menu
     $(".canvas__open").on('click', function() {
@@ -55,10 +55,10 @@
     /*------------------
 		Navigation
 	--------------------*/
-    $(".header__menu").slicknav({
-        prependTo: '#mobile-menu-wrap',
-        allowParentLinks: true
-    });
+    // $(".header__menu").slicknav({
+    //     prependTo: '#mobile-menu-wrap',
+    //     allowParentLinks: true
+    // });
 
     /*------------------
         Accordin Active
@@ -87,32 +87,32 @@
     /*--------------------------
         Product Details Slider
     ----------------------------*/
-    $(".product__details__pic__slider").owlCarousel({
-        loop: false,
-        margin: 0,
-        items: 1,
-        dots: false,
-        nav: true,
-        navText: ["<i class='arrow_carrot-left'></i>", "<i class='arrow_carrot-right'></i>"],
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: false,
-        mouseDrag: false,
-        startPosition: 'URLHash'
-    }).on('changed.owl.carousel', function(event) {
-        var indexNum = event.item.index + 1;
-        product_thumbs(indexNum);
-    });
+    // $(".product__details__pic__slider").owlCarousel({
+    //     loop: false,
+    //     margin: 0,
+    //     items: 1,
+    //     dots: false,
+    //     nav: true,
+    //     navText: ["<i class='arrow_carrot-left'></i>", "<i class='arrow_carrot-right'></i>"],
+    //     smartSpeed: 1200,
+    //     autoHeight: false,
+    //     autoplay: false,
+    //     mouseDrag: false,
+    //     startPosition: 'URLHash'
+    // }).on('changed.owl.carousel', function(event) {
+    //     var indexNum = event.item.index + 1;
+    //     product_thumbs(indexNum);
+    // });
 
-    function product_thumbs(num) {
-        var thumbs = document.querySelectorAll('.product__thumb a');
-        thumbs.forEach(function(e) {
-            e.classList.remove("active");
-            if (e.hash.split("-")[1] == num) {
-                e.classList.add("active");
-            }
-        })
-    }
+    // function product_thumbs(num) {
+    //     var thumbs = document.querySelectorAll('.product__thumb a');
+    //     thumbs.forEach(function(e) {
+    //         e.classList.remove("active");
+    //         if (e.hash.split("-")[1] == num) {
+    //             e.classList.add("active");
+    //         }
+    //     })
+    // }
 
 
     /*------------------
@@ -137,19 +137,19 @@
         CountDown
     --------------------*/
     // For demo preview start
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
+    // var today = new Date();
+    // var dd = String(today.getDate()).padStart(2, '0');
+    // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    // var yyyy = today.getFullYear();
 
-    if (mm == 12) {
-        mm = '01';
-        yyyy = yyyy + 1;
-    } else {
-        mm = parseInt(mm) + 1;
-        mm = String(mm).padStart(2, '0');
-    }
-    var timerdate = mm + '/' + dd + '/' + yyyy;
+    // if (mm == 12) {
+    //     mm = '01';
+    //     yyyy = yyyy + 1;
+    // } else {
+    //     mm = parseInt(mm) + 1;
+    //     mm = String(mm).padStart(2, '0');
+    // }
+    // var timerdate = mm + '/' + dd + '/' + yyyy;
     // For demo preview end
 
 
@@ -157,63 +157,63 @@
 
     /* var timerdate = "2020/12/30" */
 
-    $("#countdown-time").countdown(timerdate, function(event) {
-        $(this).html(event.strftime("<div class='countdown__item'><span>%D</span> <p>Day</p> </div>" + "<div class='countdown__item'><span>%H</span> <p>Hour</p> </div>" + "<div class='countdown__item'><span>%M</span> <p>Min</p> </div>" + "<div class='countdown__item'><span>%S</span> <p>Sec</p> </div>"));
-    });
+    // $("#countdown-time").countdown(timerdate, function(event) {
+    //     $(this).html(event.strftime("<div class='countdown__item'><span>%D</span> <p>Day</p> </div>" + "<div class='countdown__item'><span>%H</span> <p>Hour</p> </div>" + "<div class='countdown__item'><span>%M</span> <p>Min</p> </div>" + "<div class='countdown__item'><span>%S</span> <p>Sec</p> </div>"));
+    // });
 
     /*-------------------
 		Range Slider
 	--------------------- */
-    var rangeSlider = $(".price-range"),
-        minamount = $("#minamount"),
-        maxamount = $("#maxamount"),
-        minPrice = rangeSlider.data('min'),
-        maxPrice = rangeSlider.data('max');
-    rangeSlider.slider({
-        range: true,
-        min: minPrice,
-        max: maxPrice,
-        values: [minPrice, maxPrice],
-        slide: function(event, ui) {
-            minamount.val('$' + ui.values[0]);
-            maxamount.val('$' + ui.values[1]);
-        }
-    });
-    minamount.val('$' + rangeSlider.slider("values", 0));
-    maxamount.val('$' + rangeSlider.slider("values", 1));
+    // var rangeSlider = $(".price-range"),
+    //     minamount = $("#minamount"),
+    //     maxamount = $("#maxamount"),
+    //     minPrice = rangeSlider.data('min'),
+    //     maxPrice = rangeSlider.data('max');
+    // rangeSlider.slider({
+    //     range: true,
+    //     min: minPrice,
+    //     max: maxPrice,
+    //     values: [minPrice, maxPrice],
+    //     slide: function(event, ui) {
+    //         minamount.val('$' + ui.values[0]);
+    //         maxamount.val('$' + ui.values[1]);
+    //     }
+    // });
+    // minamount.val('$' + rangeSlider.slider("values", 0));
+    // maxamount.val('$' + rangeSlider.slider("values", 1));
 
     /*------------------
 		Single Product
 	--------------------*/
-    $('.product__thumb .pt').on('click', function() {
-        var imgurl = $(this).data('imgbigurl');
-        var bigImg = $('.product__big__img').attr('src');
-        if (imgurl != bigImg) {
-            $('.product__big__img').attr({ src: imgurl });
-        }
-    });
+    // $('.product__thumb .pt').on('click', function() {
+    //     var imgurl = $(this).data('imgbigurl');
+    //     var bigImg = $('.product__big__img').attr('src');
+    //     if (imgurl != bigImg) {
+    //         $('.product__big__img').attr({ src: imgurl });
+    //     }
+    // });
 
     /*-------------------
 		Quantity change
 	--------------------- */
-    var proQty = $('.pro-qty');
-    proQty.prepend('<span class="dec qtybtn">-</span>');
-    proQty.append('<span class="inc qtybtn">+</span>');
-    proQty.on('click', '.qtybtn', function() {
-        var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
-        if ($button.hasClass('inc')) {
-            var newVal = parseFloat(oldValue) + 1;
-        } else {
-            // Don't allow decrementing below zero
-            if (oldValue > 0) {
-                var newVal = parseFloat(oldValue) - 1;
-            } else {
-                newVal = 0;
-            }
-        }
-        $button.parent().find('input').val(newVal);
-    });
+    // var proQty = $('.pro-qty');
+    // proQty.prepend('<span class="dec qtybtn">-</span>');
+    // proQty.append('<span class="inc qtybtn">+</span>');
+    // proQty.on('click', '.qtybtn', function() {
+    //     var $button = $(this);
+    //     var oldValue = $button.parent().find('input').val();
+    //     if ($button.hasClass('inc')) {
+    //         var newVal = parseFloat(oldValue) + 1;
+    //     } else {
+    //         // Don't allow decrementing below zero
+    //         if (oldValue > 0) {
+    //             var newVal = parseFloat(oldValue) - 1;
+    //         } else {
+    //             newVal = 0;
+    //         }
+    //     }
+    //     $button.parent().find('input').val(newVal);
+    // });
 
     /*-------------------
 		Radio Btn
@@ -223,83 +223,83 @@
         $(this).addClass('active');
     });
 
-    var contactForm = function() {
-        if ($('#contactForm').length > 0) {
-            $("#contactForm").validate({
-                rules: {
-                    name: "required",
-                    subject: "required",
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    message: {
-                        required: true,
-                        minlength: 5
-                    }
-                },
-                messages: {
-                    name: "Please enter your name",
-                    subject: "Please enter your subject",
-                    email: "Please enter a valid email address",
-                    message: "Please enter a message"
-                },
-                /* submit via ajax */
+    // var contactForm = function() {
+    //     if ($('#contactForm').length > 0) {
+    //         $("#contactForm").validate({
+    //             rules: {
+    //                 name: "required",
+    //                 subject: "required",
+    //                 email: {
+    //                     required: true,
+    //                     email: true
+    //                 },
+    //                 message: {
+    //                     required: true,
+    //                     minlength: 5
+    //                 }
+    //             },
+    //             messages: {
+    //                 name: "Please enter your name",
+    //                 subject: "Please enter your subject",
+    //                 email: "Please enter a valid email address",
+    //                 message: "Please enter a message"
+    //             },
+    //             /* submit via ajax */
 
-                submitHandler: function(form) {
-                        var $submit = $('.submitting'),
-                            waitText = 'Submitting...';
+    //             submitHandler: function(form) {
+    //                 var $submit = $('.submitting'),
+    //                     waitText = 'Submitting...';
 
-                        $.ajax({
-                            type: "POST",
-                            url: "php/sendEmail.php",
-                            data: $(form).serialize(),
+    //                 $.ajax({
+    //                     type: "POST",
+    //                     url: "php/sendEmail.php",
+    //                     data: $(form).serialize(),
 
-                            beforeSend: function() {
-                                $submit.css('display', 'block').text(waitText);
-                            },
-                            success: function(msg) {
-                                if (msg == 'OK') {
-                                    $('#form-message-warning').hide();
-                                    setTimeout(function() {
-                                        $('#contactForm').fadeIn();
-                                    }, 1000);
-                                    setTimeout(function() {
-                                        $('#form-message-success').fadeIn();
-                                    }, 1400);
+    //                     beforeSend: function() {
+    //                         $submit.css('display', 'block').text(waitText);
+    //                     },
+    //                     success: function(msg) {
+    //                         if (msg == 'OK') {
+    //                             $('#form-message-warning').hide();
+    //                             setTimeout(function() {
+    //                                 $('#contactForm').fadeIn();
+    //                             }, 1000);
+    //                             setTimeout(function() {
+    //                                 $('#form-message-success').fadeIn();
+    //                             }, 1400);
 
-                                    setTimeout(function() {
-                                        $('#form-message-success').fadeOut();
-                                    }, 8000);
+    //                             setTimeout(function() {
+    //                                 $('#form-message-success').fadeOut();
+    //                             }, 8000);
 
-                                    setTimeout(function() {
-                                        $submit.css('display', 'none').text(waitText);
-                                    }, 1400);
+    //                             setTimeout(function() {
+    //                                 $submit.css('display', 'none').text(waitText);
+    //                             }, 1400);
 
-                                    setTimeout(function() {
-                                        $('#contactForm').each(function() {
-                                            this.reset();
-                                        });
-                                    }, 1400);
+    //                             setTimeout(function() {
+    //                                 $('#contactForm').each(function() {
+    //                                     this.reset();
+    //                                 });
+    //                             }, 1400);
 
-                                } else {
-                                    $('#form-message-warning').html(msg);
-                                    $('#form-message-warning').fadeIn();
-                                    $submit.css('display', 'none');
-                                }
-                            },
-                            error: function() {
-                                $('#form-message-warning').html("Something went wrong. Please try again.");
-                                $('#form-message-warning').fadeIn();
-                                $submit.css('display', 'none');
-                            }
-                        });
-                    } // end submitHandler
+    //                         } else {
+    //                             $('#form-message-warning').html(msg);
+    //                             $('#form-message-warning').fadeIn();
+    //                             $submit.css('display', 'none');
+    //                         }
+    //                     },
+    //                     error: function() {
+    //                         $('#form-message-warning').html("Something went wrong. Please try again.");
+    //                         $('#form-message-warning').fadeIn();
+    //                         $submit.css('display', 'none');
+    //                     }
+    //                 });
+    //             }
 
-            });
-        }
-    };
-    contactForm();
+    //         });
+    //     }
+    // };
+    // contactForm();
 
 
 })(jQuery);

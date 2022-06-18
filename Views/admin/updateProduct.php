@@ -1,4 +1,7 @@
 <?php
+// error_reporting(0);
+// var_dump($_POST);
+// die();
     if(isset($_SESSION["admin"]) && $_SESSION["admin"] == true){
         $categories = new CategorieController();
         $categories = $categories->getAllCategories();
@@ -12,11 +15,6 @@
         Redirect::to("landing");
     }
 ?>
-
-
-
-
-
 <div class="container" style="margin-top:200px; margin-bottom:150px;">
         <div class="row mb-5">
             <div class="col-md-12">
@@ -27,6 +25,7 @@
                     </div>
                     <div class="card-body">
                         <form method="post">
+                            <input type="hidden" name="id_prod" value="<?= $_POST["id_prod"]?>">
                             <!-- <div class="form-group">
                                 <label for="name">Reference</label>
                                 <input type="text" class="form-control" name="rfer" placeholder="Enter Product Reference" required>
