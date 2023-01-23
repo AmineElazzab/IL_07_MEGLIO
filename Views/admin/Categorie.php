@@ -73,7 +73,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] == true){
                         </g>
                     </svg>
                 </button>
-                <div id="userMenu" class="bg-white rounded shadow-md mt-2 absolute mt-12 top-0 right-0 min-w-full overflow-auto z-30 invisible">
+                <div id="userMenu" class="bg-white rounded shadow-md mt-2 absolute top-0 right-0 min-w-full overflow-auto z-30 invisible">
                     <ul class="list-reset">
                         <li><a href="#" class="px-4 py-2 block text-gray-900 hover:bg-gray-400 no-underline hover:no-underline"><?php echo $_SESSION["fullname"]; ?></a></li>
                         <li><a href="<?php echo BASE_URL; ?>logout" class="px-4 py-2 block text-gray-900 hover:bg-gray-400 no-underline hover:no-underline">Logout</a></li>
