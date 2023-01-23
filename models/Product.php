@@ -72,27 +72,7 @@
         }
     }
     static public function addProduct($data){
-        // $stmt = DB::connect()->prepare("INSERT INTO product (nom_prod,descp_prod,prix_prod,image_prod,quantité,color,size,product_categorie_id) 
-        //                        VALUES (:nom_prod,:descp_prod,:prix_prod,:image_prod,:quantité,:color,:size,:product_categorie_id)");
-        // $stmt->bindParam(':nom_prod',$data['nom_prod']);
-        // $stmt->bindParam(':descp_prod',$data['descp_prod']);
-        // $stmt->bindParam(':prix_prod',$data['prix_prod']);
-        // $stmt->bindParam(':image_prod',$data['image_prod']);
-        // $stmt->bindParam(':quantité',$data['quantité']);
-        // $stmt->bindParam(':color',$data['color']);
-        // $stmt->bindParam(':size',$data['size']);
-        // $stmt->bindParam(':product_categorie_id',$data['product_categorie_id']);
 
-
-        // $stmt = DB::connect()->prepare("INSERT INTO `product`(`nom_prod`, `descp_prod`, `prix_prod`, `image_prod`, `quantité`, `color`, `size`, `product_categorie_id`) VALUES (:nom_prod,:descp_prod,:prix_prod,:image_prod,:quantité,:color,:size,:product_categorie_id)");
-        // $stmt->bindParam(':nom_prod',$data['nom_prod']);
-        // $stmt->bindParam(':descp_prod',$data['descp_prod']);
-        // $stmt->bindParam(':prix_prod',$data['prix_prod']);
-        // $stmt->bindParam(':image_prod',$data['image_prod']);
-        // $stmt->bindParam(':quantité',$data['quantité']);
-        // $stmt->bindParam(':color',$data['color']);
-        // $stmt->bindParam(':size',$data['size']);
-        // $stmt->bindParam(':product_categorie_id',$data['product_categorie_id']);
 
         $stmt = DB::connect()->prepare("INSERT INTO `product`(`nom_prod`,`descp_prod`,`prix_prod`,`image_prod`, `quantité`, `color`, `size`, `product_categorie_id`) VALUES (:nom_prod,:descp_prod,:prix_prod,:image_prod,:qte,:color,:size,:prId)");
         // $stmt->bindParam(':rfer',$data['rfer']);
@@ -127,7 +107,7 @@
         $stmt->bindParam(':descp_prod',$data['descp_prod']);
         $stmt->bindParam(':prix_prod',$data['prix_prod']);
         $stmt->bindParam(':image_prod',$data['image_prod']);
-        $stmt->bindParam(':qte',$data['qauantité']);
+        $stmt->bindParam(':qte',$data['quantité']);
         $stmt->bindParam(':color',$data['color']);
         $stmt->bindParam(':size',$data['size']);
         if($stmt->execute()){
