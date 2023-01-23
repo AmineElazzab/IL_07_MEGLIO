@@ -2,8 +2,7 @@
 
 
 <?php
-    // $data = new ProductController();
-    // $products = $data->getAllProducts();
+
     if(isset($_POST['try']))
     {
         $ctr=new CategorieController();
