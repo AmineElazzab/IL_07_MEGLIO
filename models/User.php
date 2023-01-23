@@ -14,7 +14,7 @@ class User{
         }
     }
 
-    static public function createUser($data){
+    static public function createUser($data){ 
      $stmt = DB::connect()->prepare("INSERT INTO users (fullname,username,telephone,email,adresse,passwords) VALUES (:fullname,:username,:telephone,:email, :adresse, :passwords)");
         $stmt->bindParam(':fullname', $data['fullname']);
         $stmt->bindParam(':username', $data['username']);
