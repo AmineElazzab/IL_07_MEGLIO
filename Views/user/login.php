@@ -1,13 +1,4 @@
-<?php
-error_reporting(0);
-if(isset($_SESSION["logged"]) && $_SESSION["logged"] == true) {
-  Redirect::to("landing");
-}
-if (isset($_POST['submit'])) {
-  $login = new UsersController();
-  $login->auth();
-}
-?>
+
     <!-- component -->
 <section class="flex flex-col md:flex-row h-screen items-center" class="test">
 
@@ -22,7 +13,7 @@ if (isset($_POST['submit'])) {
 
   <div class="col-xl-auto col-lg-auto">
                     <div class="header__logo">
-                        <a href="<?php echo BASE_URL; ?>"><img src="./Views/assets/img/logo.png" alt=""></a>
+                        <a href=""><img src="./Views/assets/img/logo.png" alt=""></a>
                         <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Sign in</h1></br>
                         <h4>Become a Member — you'll enjoy exclusive deals, offers, invites and rewards.</h4>
                     </div>
@@ -35,8 +26,7 @@ if (isset($_POST['submit'])) {
 
       <div class="mt-4">
         <label class="block text-gray-700">Password</label>
-        <input type="password" name="passwords" id="passwords" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500
-              focus:bg-white focus:outline-none" required>
+        <input type="password" name="passwords" id="passwords" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500focus:bg-white focus:outline-none" required>
       </div>
 
       <!-- <div class="text-right mt-2">
@@ -59,7 +49,7 @@ if (isset($_POST['submit'])) {
           </div>
         </button> -->
 
-    <p class="mt-8"><a href="<?php echo BASE_URL; ?>register" class="text-gray-500 hover:text-orange-700 font-semibold">Become a member</a></p>
+    <p class="mt-8"><a href="register" class="text-gray-500 hover:text-orange-700 font-semibold">Become a member</a></p>
 
 
   </div>
