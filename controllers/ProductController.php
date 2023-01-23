@@ -98,6 +98,8 @@ class ProductController{
                 "size" => $_POST["size"],
                 // "prId" => $_POST["prId"],
             );
+            // var_dump($data);
+            // die();
             $result = Product::editProduct($data);
             if($result == "ok"){
                 Session::set("success","Produit modifié");
