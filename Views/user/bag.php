@@ -25,7 +25,7 @@
                 </thead>
                 <tbody >
                     <?php foreach ($_SESSION as $name => $product) : ?>
-                        <?php if (substr($name, 0,9)=="products_") : ?>
+                        <?php if (substr($name, 0,9)=="products_") : ?>         
                             <tr >
                                 <td> <img src=<?= "./Views/assets/img/product/".$product["image"] ?> alt=""></td>
                                 <td><?php echo $product["name"]; ?></td>
