@@ -16,7 +16,7 @@ class  Categorie{
         $stmt= DB::connect()->prepare('SELECT * FROM product p INNER JOIN categorie c on p.product_categorie_id=c.id_categorie and c.name_categorie=:categorie');
         $stmt->bindParam(':categorie',$data['categorie']);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(); // returns all products by categorie  id  passed in url   ?id=1   ?id=2   ?id=3       etc...  ?id=1&id=2&id=3 etc...
     }
 
     static public function getProduct($data) 
